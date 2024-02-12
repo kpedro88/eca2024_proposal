@@ -1,1 +1,46 @@
 % import extra packages here
+\usepackage{enumitem}
+\usepackage{multirow}
+\usepackage{makecell}
+\usepackage{setspace}
+\usepackage{heppennames2}
+\usepackage{ptdr-definitions}
+\pdfobjcompresslevel=0
+
+\setlist[itemize]{noitemsep, leftmargin=\parindent, topsep=0pt, parsep=0pt}
+\setlist[enumerate]{noitemsep, leftmargin=\parindent, topsep=0pt, parsep=0pt}
+\newlength{\mytitlespacing}
+\setlength{\mytitlespacing}{2pt}
+\newlength{\myfigurespacing}
+\setlength{\myfigurespacing}{2pt}
+\newlength{\myfigureskip}
+\setlength{\myfigureskip}{2pt}
+\newlength{\myfigureskipeqh}
+\setlength{\myfigureskipeqh}{0.1cm}
+\newlength{\myfigurewidth}
+\setlength{\myfigurewidth}{0.9\linewidth}
+\newlength{\myfigureextra}
+\setlength{\myfigureextra}{0.98\linewidth}
+\addtolength{\myfigureextra}{-\myfigurewidth}
+\titlespacing*{\section}{0pt}{\mytitlespacing}{\mytitlespacing}
+\titleformat{\section}{\normalfont\fontsize{11}{15}\bfseries}{\thesection}{1em}{}
+\titlespacing*{\subsection}{0pt}{\mytitlespacing}{\mytitlespacing}
+\titleformat{\subsection}{\normalfont\fontsize{11}{15}\bfseries}{\thesubsection}{1em}{}
+\titlespacing*{\subsubsection}{0pt}{\mytitlespacing}{\mytitlespacing}
+\titleformat{\subsubsection}{\normalfont\fontsize{11}{15}\bfseries}{\thesubsubsection}{1em}{}
+%\setlength{\baselineskip}{12.796pt}
+\setlength{\textfloatsep}{\myfigurespacing}
+\setlength{\intextsep}{\myfigurespacing}
+\setlength{\floatsep}{\myfigureskip}
+\setlength{\abovecaptionskip}{\myfigureskip}
+\setlength{\belowcaptionskip}{\myfigureskip}
+
+\let\OLDthebibliography\thebibliography
+\renewcommand\thebibliography[1]{
+  \OLDthebibliography{#1}
+  \setlength{\parskip}{0pt}
+  \setlength{\itemsep}{0pt plus 0.3ex}
+}
+
+\newcommand{\twofigeqh}[2]{\resizebox{\myfigurewidth}{!}{\includegraphics[height=1cm]{#1}\hspace{\myfigureskipeqh}\includegraphics[height=1cm]{#2}}}
+\newcommand{\threefigeqh}[3]{\resizebox{\myfigurewidth}{!}{\includegraphics[height=1cm]{#1}\hspace{\myfigureskipeqh}\includegraphics[height=1cm]{#2}\hspace{\myfigureskipeqh}\includegraphics[height=1cm]{#3}}}
