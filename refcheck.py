@@ -1,4 +1,4 @@
-import os
+import os, sys
 from argparse import ArgumentParser, ArgumentDefaultsHelpFormatter
 from collections import OrderedDict
 
@@ -65,6 +65,10 @@ def find_refs(fname):
     return used
 used = find_refs(args.texfile)
 
+# 2.5 check if any changes
+if list(refs.keys())==used:
+    sys.exit(0)
+
 # 3. make new bibfile w/ refs in correct order
 new_bibfile = "new_"+args.bibfile
 unknown = []
@@ -80,7 +84,7 @@ with open(new_bibfile,'w') as biblio:
         biblio.write(line)
 if not args.dry_run:
     # easier than mv with overwrite
-    os.remove(args.bibfile)
+    os.rename(args.bibfile,args.bibfile+".bak")
     os.rename(new_bibfile,args.bibfile)
 
 # 4. show unused and unknown refs
