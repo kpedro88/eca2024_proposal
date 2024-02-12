@@ -1,1 +1,38 @@
 \section{Introduction}\label{sec:intro}
+
+This proposal addresses two of the most important outstanding topics in particle physics at the energy frontier:
+the nature of dark matter (DM) and the computational challenge of detector simulation.
+The recent P5 report~\cite{P5:2023} has reaffirmed determining the nature of DM,
+as well as searching for direct evidence of new particles, as key science drivers for the field.
+Further, software and computing are noted as key enablers and areas for investment.
+These topics are crucial for the Large Hadron Collider (LHC) physics program,
+including the upcoming high-luminosity upgrade (HL-LHC).
+
+In particular, this proposal explores the hypothesis that dark matter, much like ordinary matter,
+consists of composite particles bound together by a strong force, analogous to standard model (SM) quantum chromodynamics (QCD).
+This is predicted by ``hidden valley'' models, which postulate a dark sector with a new, confining force, called ``dark QCD''.
+Such composite, or strongly coupled, dark matter is expected to have highly suppressed interactions with ordinary matter
+and therefore would evade detection at direct and annihilation-based dark matter experiments~\cite{Cohen:2017pzm,Petraki:2013wwa}.
+However, evidence of dark QCD may be found at colliders, illustrating the complementarity between the different prongs of the high energy physics (HEP) program.
+Collider production would result in novel phenomenological signatures, such as ``semivisible jets'' containing a mixture of visible and invisible particles.
+Because these models include numerous parameters with unknown values and theoretical uncertainties, the most effective search strategy will cover a broad range of similar phenomena.
+This will be accomplished through unsupervised artificial intelligence (AI), which learns to distinguish known standard model (SM) processes from anomalies
+without relying on a specific model of new physics.
+Unsupervised AI will be employed both to select events at the trigger level and to identify new phenomena later in the analysis.
+
+Accurate detector simulation is one of the cornerstones of HEP, crucial to design searches for new physics.
+Because of the wide range of possible signal models,
+as well as the potentially large backgrounds from high-cross section processes such as SM QCD multijet production,
+this program will require substantial quantities of simulated events.
+The current approach, modeling each simulated particle's interactions with the detector material, is too computationally intensive to deliver enough events.
+In this way, the search for composite dark matter presages a challenge soon to be faced by the entire field at the HL-LHC.
+With data rates increasing by a factor of 10 and event complexity growing similarly, no analysis will have a sufficient amount of simulation.
+New techniques in generative AI are well suited to address this challenge, dramatically accelerating the computation of detector simulation while retaining quality.
+AI-based simulation can naturally take advantage of GPUs and other coprocessors, such as those at high performance computing (HPC) centers.
+Using inference as a service, these new techniques will be implemented with minimal disruption to the existing software and maximal flexibility to use coprocessors efficiently.
+
+The PI is a recognized leader in strongly coupled dark matter and both unsupervised and generative AI.
+His leadership is supplemented by broad expertise in collider searches for new physics and scientific computing.
+The program proposed here will advance multiple elements of the DOE HEP mission: understanding dark matter and improving capabilities in detector simulation.
+The benefits will extend to the entire field and even into the future, beyond the HL-LHC, providing physics motivation and critical techniques for future colliders.
+Success will be achieved by leveraging the PI's established collaborations based at Fermilab, which provides unparalleled and highly relevant resources and knowledge.
