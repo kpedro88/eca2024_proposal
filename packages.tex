@@ -18,7 +18,9 @@
 \newlength{\myfigureskipeqh}
 \setlength{\myfigureskipeqh}{0.1cm}
 \newlength{\myfigurewidth}
-\setlength{\myfigurewidth}{0.9\linewidth}
+\setlength{\myfigurewidth}{1.0\textwidth}
+\newlength{\myfigureheight}
+\setlength{\myfigureheight}{1cm}
 \newlength{\myfigureextra}
 \setlength{\myfigureextra}{0.98\linewidth}
 \addtolength{\myfigureextra}{-\myfigurewidth}
@@ -42,5 +44,5 @@
   \setlength{\itemsep}{0pt plus 0.3ex}
 }
 
-\newcommand{\twofigeqh}[2]{\resizebox{\myfigurewidth}{!}{\includegraphics[height=1cm]{#1}\hspace{\myfigureskipeqh}\includegraphics[height=1cm]{#2}}}
-\newcommand{\threefigeqh}[3]{\resizebox{\myfigurewidth}{!}{\includegraphics[height=1cm]{#1}\hspace{\myfigureskipeqh}\includegraphics[height=1cm]{#2}\hspace{\myfigureskipeqh}\includegraphics[height=1cm]{#3}}}
+\newcommand{\twofigeqh}[2]{\resizebox{\myfigurewidth}{!}{\includegraphics[height=\myfigureheight]{#1}\hspace{\myfigureskipeqh}\includegraphics[height=\myfigureheight]{#2}}}
+\newcommand{\threefigeqh}[3]{\resizebox{\myfigurewidth}{!}{\includegraphics[height=\myfigureheight]{#1}\hspace{\myfigureskipeqh}\includegraphics[height=\myfigureheight]{#2}\hspace{\myfigureskipeqh}\includegraphics[height=\myfigureheight]{#3}}}
