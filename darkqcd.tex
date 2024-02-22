@@ -8,8 +8,8 @@ The latter is the most novel parameter of the model, corresponding to the fracti
 However, it is an effective parameter, summarizing the impacts of various accidental symmetries and conserved quantum numbers.
 Many other dark sector parameters can impact the collider final state, including the cutoff scale \Lamdark, the dark quark mass \mqdark, the number of dark colors \Ncdark, and the number of dark flavors \Nfdark.
 The details of the mediator connecting the SM and dark sector, such as its couplings, can affect the decays of unstable dark hadrons.
-In addition, because low-energy QCD bound state formation via showering and hadronization is non-perturbative, it must be simulated using phenomenological models~\cite{Carloni:2010tw},
-with parameters that are tuned to measurements of SM QCD and may not be identical in dark QCD.
+In addition, because low-energy QCD bound state formation via showering and hadronization is non-perturbative, it must be simulated using phenomenological models,
+with parameters that are tuned to measurements of SM QCD.
 
 The models currently investigated in CMS searches are based on Refs.~\cite{Cohen:2015toa,Cohen:2017pzm}, along with contributions from the PI
 regarding the relationship between \mdark and \Lamdark, as well as the modeling of \rinv~\cite{Albouy:2022cin}.
@@ -72,7 +72,7 @@ Even the simple cut-based model-independent strategy offers a noticeable improve
 \label{tab:conventional}
 \end{table}
 
-Subsequently, the PI has developed several more searches using the LHC Run 2 dataset to target different mediator mass regimes:
+Subsequently, the PI has developed several more searches, now nearing completion, that use the LHC Run 2 dataset to target different mass ranges and production modes:
 low-mass \PZprime, intermediate-mass \PZprime, and nonresonant $t$-channel production through a bifundamental scalar mediator \Pbifun,
 which has Yukawa couplings \sbifun between SM quarks and dark quarks~\cite{Cohen:2017pzm}.
 Each search requires a different trigger strategy, summarized in Table~\ref{tab:conventional}.
@@ -105,7 +105,7 @@ which optimizes the output of a neural network to be able to perform an ``ABCD''
 
 The most important element will be the identification or ``tagging'' of SVJs, which is the only way to reduce the large SM backgrounds beyond basic event-level kinematic selections.
 From the original BDT, the team has progressed to more sophisticated approaches:
-a supervised (model-dependent) tagger using particle-level inputs, based on the ParticleNet graph neural network architecture~\cite{};
+a supervised (model-dependent) tagger using particle-level inputs, based on the ParticleNet graph neural network architecture~\cite{Qu:2019gqs};
 and an unsupervised (model-independent) autoencoder (AE) using jet substructure variables.
 The current performance of these algorithms is shown in Fig.~\ref{fig:svjtaggers}, quantified by integrating the receiver-operator characteristic (ROC) curve to produce the area under the curve (AUC).
 A comparable ParticleNet-based supervised tagger for EMJs has AUC scores of 0.97--0.99, indicating that it is markedly more difficult to distinguish SVJs from QCD jets.
@@ -119,18 +119,18 @@ A score of 1.0 would indicate perfect discrimination between signal and backgrou
 \end{figure}
 
 The AE only learns to reconstruct common SM background processes and therefore discriminates against other processes by failing to reconstruct their kinematic features.
-The PI was among the first to demonstrate the autoencoders could discriminate between SM QCD jets and SVJs, even surpassing a supervised tagger when applied to a different model~\cite{}.
-To achieve discrimination against \ttbar jets, the normalized autoencoder (NAE) formalism~\cite{} was adopted in order to minimize complexity bias.
+The PI was among the first to demonstrate the autoencoders could discriminate between SM QCD jets and SVJs, even surpassing a supervised tagger when applied to a signal model not used during training~\cite{Canelli:2021aps}.
+To achieve discrimination against \ttbar jets, the normalized autoencoder (NAE) formalism~\cite{Dillon:2022mkq} was adopted in order to minimize complexity bias.
 The team developed a completely novel method to stabilize the training by directly minimizing the Wasserstein or earth mover's distance
 between samples drawn from the input data and from the latent representation of the autoencoder, resulting in the WNAE.
 This approach is also now being applied to improve the performance of the AXOL1TL anomaly trigger.
 
 For the Run 3 SVJ search, we will develop a new tagger combining the best features of both approaches:
-a graph-based autoencoder (GAE), using the Lund plane representation following Refs.~\cite{} and trained with the WNAE approach.
+a graph-based autoencoder (GAE), using the Lund plane representation following Ref.~\cite{Dreyer:2020brq} and trained with the WNAE approach.
 Early attempts indicate the WNGAE could approach the performance level of the supervised tagger, while remaining naturally model-independent.
 While these taggers are initially trained using simulated events,
-the semi-supervised universal domain adaptation technique developed by the PI and his collaborators~\cite{}
-will be employed to ensure similar performance on data by only allowing physically invariant features to be learned.
+the semi-supervised universal domain adaptation technique developed by the PI and his collaborators~\cite{Ciprijanovic:2023hrw}
+will be employed to ensure similar performance in data by learning only physically invariant features.
 
 \subsection{Dark QCD Scan}\label{subsec:darkscan}
 
@@ -138,7 +138,7 @@ While this proposal focuses on SVJs, there are other dark QCD phenomena.
 EMJs may form if the unstable dark hadrons have a lifetime \taudark, leading to multiple displaced vertices within a single jet.
 SUEPs occur when there is a large 't Hooft coupling strength $\thooft = \gdark^2 \Ncdark$,
 resulting in a high multiplicity of low-momentum tracks from unsuppressed large angle emissions, rather than collimated jets.
-The CMS Dark QCD team has recently released new results for both signatures in Refs.~\cite{},
+The CMS Dark QCD team has recently released new results for both signatures in Refs.~\cite{CMS:2023vpb,CMS:2024emj},
 following the first CMS EMJ search with a small dataset~\cite{Sirunyan:2018njd}.
 Conducting separate searches for each phenomenon is important to understand the kinematic phase space and behavior associated with these new models.
 
@@ -155,15 +155,15 @@ Figure~\ref{fig:svjacc} illustrates the interplay between three characteristic p
 the dark meson lifetime $\taudark$, the invisible fraction $\rinv$, and the 't Hooft coupling \thooft.
 For large values of \rinv and \taudark, the pre-existing searches for large \met would still be the most effective.
 However, for intermediate values of those parameters, a dedicated strategy might outperform any of the individual searches noted above.
-The best strategies for intermediate or large values of \thooft in combination with the other parameters remain an open question.
-The generation of physically realistic events at intermediate \thooft has only recently become possible~\cite{Cesarotti:2020uod}.
+The best strategies for large values of \thooft in combination with the other parameters remain an open question,
+while the generation of physically realistic events at intermediate \thooft has only recently become possible~\cite{Cesarotti:2020uod}.
 
 All of these search strategies might need adjustments for other parameters,
 such as the mediator masses and couplings and the various dark sector parameters discussed in Section~\ref{subsec:models}.
 The most feasible way to explore this large parameter space is using a multidimensional scan,
 similar to scans of the phenomenological minimal supersymmetric standard model (pMSSM)~\cite{Djouadi:1998di}
 provided by CMS for earlier datasets~\cite{Khachatryan:2016nvf,SUS-16-033-supp} and currently in preparation for Run 2 by the PI and his colleagues.
-Much like the pMSSM, this scan will include many random parameter combinations, with existing constraints included to avoid models that are already ruled out.
+Much like the pMSSM, this scan will include many random parameter combinations, with existing constraints included to eliminate models that are already ruled out.
 We will reinterpret the latest dark QCD searches from LHC Runs 2 and 3 to understand which of these combined models are effectively excluded and which are not covered.
 Finding uncovered models will direct efforts to design new search strategies, including dedicated triggers, for the upcoming HL-LHC runs.
 The combined models will also help to further characterize any observed signal, which would likely have intermediate values of some parameters.
@@ -176,8 +176,8 @@ However, each new element is independent from the others, and reasonable fallbac
 \item \textit{Anomaly triggers}: if the anomaly trigger performance is not sufficient, the Run 2 trigger strategy can be used, at the cost of more effort to analyze multiple datasets with a less unified strategy.
 \item \textit{SVJ taggers}: if the WNGAE encounters difficulties, the existing tagger architectures can be reused, at the cost of decreased tagging performance or increased model dependence. (The same applies to other AI algorithms, which can be substituted with standard techniques at the cost of increased uncertainty or decreased sensitivity.)
 \end{enumerate}
-Ultimately, these elements provide additional gains over the use of the Run 3 dataset, which is larger and higher energy than the Run 2 dataset.
-The basic discovery potential grows by up to X\% when going from $\sqrt{s} = 13$ to 13.6\TeV and integrated luminosity of 138 to ${\sim}$190--260\fbinv.
-
-% todo: add plot showing discovery significance for Run 2 vs Run 3, taking into account sqrt(s), lumi
-
+At minimum, the SVJ search will benefit from the use of the larger, higher energy Run 3 dataset.
+Current searches do not exclude a \PZprime of mass 6\TeV, or alternatively pair production of \Pbifun with mass 3\TeV;
+the discovery significance for these models will increase by a factor of 2.0--2.4.
+This is driven primarily by the 80\% higher production cross section at $\sqrt{s}=13.6\TeV$ compared to 13\TeV
+and secondarily by the increase in integrated luminosity from 138\fbinv to ${\sim}$190--260\fbinv.
