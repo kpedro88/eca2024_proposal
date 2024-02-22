@@ -1,6 +1,6 @@
 \section{Strongly Coupled Dark Matter}\label{sec:darkqcd}
 
-\subsection{SVJ Models}\label{subsec:models}
+\subsection{Models}\label{subsec:models}
 
 Dark QCD models include numerous parameters, with current searches focusing on those most immediately observable:
 the mediator mass \mZprime or \mbifun, the dark hadron mass scale \mdark, and the invisible fraction \rinv.
@@ -8,7 +8,7 @@ The latter is the most novel parameter of the model, corresponding to the fracti
 However, it is an effective parameter, summarizing the impacts of various accidental symmetries and conserved quantum numbers.
 Many other dark sector parameters can impact the collider final state, including the cutoff scale \Lamdark, the dark quark mass \mqdark, the number of dark colors \Ncdark, and the number of dark flavors \Nfdark.
 The details of the mediator connecting the SM and dark sector, such as its couplings, can affect the decays of unstable dark hadrons.
-In addition, because low-energy QCD bound state formation via showering and hadronization is non-perturbative, it must be simulated using phenomenological models,
+In addition, because low-energy QCD bound state formation via showering and hadronization is non-perturbative, it must be simulated using phenomenological models~\cite{Carloni:2010tw},
 with parameters that are tuned to measurements of SM QCD and may not be identical in dark QCD.
 
 The models currently investigated in CMS searches are based on Refs.~\cite{Cohen:2015toa,Cohen:2017pzm}, along with contributions from the PI
@@ -17,13 +17,13 @@ These models choose $\Ncdark=2$ and $\Nfdark=2$, which leads to similarities in 
 given the lack of a confining $SU(2)$ force in the SM.
 Here, we propose a more comprehensive assessment of the interplay between \Nfdark, \Lamdark, \mdark, and \mqdark (among other parameters),
 focusing on the $\Ncdark=3$ case, for which lessons from the SM, especially from lattice QCD, can be more easily reused.
-This follows directly from the Snowmass effort in Ref.~\cite{Albouy:2022cin}, which presented a few benchmarks of more realistic dark QCD models.
-The result will be a complete set of benchmarks covering the entire range of \rinv values from 0 to 1,
+This will complete the original vision of the Snowmass effort, Ref.~\cite{Albouy:2022cin},
+to deliver a complete set of benchmarks covering the entire range of \rinv values from 0 to 1,
 reflecting new understanding about degeneracies in the model space and any nontrivial correlations between \rinv and observables such as jet substructure.
 This new set of benchmarks can guide the Run 3 search strategy to ensure the entire known phase space is covered
 and can serve to unify the efforts of different experimental collaborations, which currently study different models.
 
-\subsection{SVJ Searches}\label{subsec:searches}
+\subsection{Strategy}\label{subsec:strategy}
 
 \begin{figure}[htb!]
 \centering
@@ -33,20 +33,15 @@ and can serve to unify the efforts of different experimental collaborations, whi
 \label{fig:svjexcl}
 \end{figure}
 
-\begin{figure}[htb!]
-\centering
-\twofigeqh{figures/axol1tl_score_schan.pdf}{figures/axol1tl_score_tchan2.pdf}
-\caption{Score distributions from anomaly triggers on SVJ processes. (PLACEHOLDER)}
-\label{fig:svjanomaly}
-\end{figure}
-
-\begin{figure}[htb!]
-\centering
-\twofigeqh{figures/rocScoreSigP2DQCD_rinv.pdf}{figures/WNAE_performance_from_SVJ_t_channel_status_update_2024_02_06-2.pdf}
-\caption{The performance of the latest SVJ taggers: supervised ParticleNet (left) and unsupervised Wasserstein normalized autoencoder (right).
-A score of 1.0 would indicate perfect discrimination between signal and background jets.}
-\label{fig:svjtaggers}
-\end{figure}
+The PI led the first search for semivisible jets, published in Ref.~\cite{CMS:2021dzg}, which targeted $s$-channel production via a massive \PZprime mediator.
+This is the first dedicated analysis of collider events with jets aligned with missing transverse momentum,
+a signature that usually arises in the SM via undermeasurement of a jet from a QCD multijet process.
+This work built on the PI's previous leadership of searches for strongly-produced supersymmetric particles in hadronic final states~\cite{Khachatryan:2016kdk,Sirunyan:2017cwe,Sirunyan:2019hzr,Sirunyan:2019ctn,CMS:2023xlp}.
+The search also introduced the dual strategy of providing both model-independent and model-dependent results,
+with the latter utilizing a boosted decision tree (BDT) trained to identify SVJs from specific signal models using high-level variables focusing on jet substructure.
+Figure~\ref{fig:svjexcl} compares the mass and coupling exclusions from this search to the dijet resonance search, which targets the complementary process $\PZprime \to \cPq\cPaq$,
+and the monojet search, which targets a signature of simplified DM models, \ptmiss in association with an initial-state radiation (ISR) jet.
+Even the simple cut-based model-independent strategy offers a noticeable improvement over other searches in the area around $\rinv=0.3$, where the acceptance is maximized.
 
 % centered, fixed-width column type
 \newcolumntype{C}[1]{w{c}{#1}}
@@ -77,7 +72,75 @@ A score of 1.0 would indicate perfect discrimination between signal and backgrou
 \label{tab:conventional}
 \end{table}
 
-% todo: add plot showing discovery significance for Run 2 vs Run 3, taking into account sqrt(s), lumi
+Subsequently, the PI has developed several more searches using the LHC Run 2 dataset to target different mediator mass regimes:
+low-mass \PZprime, intermediate-mass \PZprime, and nonresonant $t$-channel production through a bifundamental scalar mediator \Pbifun,
+which has Yukawa couplings \sbifun between SM quarks and dark quarks~\cite{Cohen:2017pzm}.
+Each search requires a different trigger strategy, summarized in Table~\ref{tab:conventional}.
+These include conventional triggers based on jet \pt, \HT (the scalar sum of jet \pt), and \ptmiss;
+triggering on ISR jet \pt in a boosted topology;
+and the use of data scouting, in which a lower threshold in the \HT trigger is enabled by storing only partial event information~\cite{Mukherjee:2019anz}.
+
+Here, we propose a new, unified trigger strategy in Run 3, made possible by the introduction of anomaly detection triggers that exploit unsupervised AI.
+Two complementary algorithms are available: CICADA~\cite{CMS-DP-2023-086}, which looks for anomalous calorimeter clusters, and AXOL1TL~\cite{CMS-DP-2023-079}, which looks for global anomalies.
+These algorithms are developed by the PI's Fermilab, CERN, and LPC colleagues, and the PI has been involved with validating and improving the performance of these triggers on dark QCD models;
+the latest results are shown in Fig.~\ref{fig:svjanomaly}.
+The anomaly triggers promise substantial improvements in the signal trigger efficiency, especially for lower-mass \PZprime mediators and nonresonant production,
+which will facilitate sensitivity to more models and smaller couplings.
+
+\begin{figure}[htb!]
+\centering
+\twofigeqh{figures/axol1tl_score_schan.pdf}{figures/axol1tl_score_tchan2.pdf}
+\caption{Score distributions from anomaly triggers on SVJ processes. (PLACEHOLDER)}
+\label{fig:svjanomaly}
+\end{figure}
+
+We will further unify the offline analysis strategy to cover all production modes.
+Currently, no search targets resonant production of \Pbifun, which can occur singly in association with a low-\pt SVJ, or in a pair;
+the resonant production modes are more prominent for low mediator mass and small \sbifun.
+For all resonant cases, we will use optimal mass variables designed by semi-supervised, interpretable AI, which the PI has demonstrated to be more precise than the standard transverse mass and similar variables~\cite{Pedro:2023sdp}.
+In the nonresonant case, the search must be performed in the tail of the \ptmiss distribution;
+however, using the same dataset and sharing most event selection criteria with the resonant searches will significantly streamline the effort.
+Even a common background estimation technique will be employed, utilizing the new ``closure loss'' developed by the PI and his colleagues,
+which optimizes the output of a neural network to be able to perform an ``ABCD'' background estimation using three control regions in observed data~\cite{}.
+
+The most important element will be the identification or ``tagging'' of SVJs, which is the only way to reduce the large SM backgrounds beyond basic event-level kinematic selections.
+From the original BDT, the team has progressed to more sophisticated approaches:
+a supervised (model-dependent) tagger using particle-level inputs, based on the ParticleNet graph neural network architecture~\cite{};
+and an unsupervised (model-independent) autoencoder (AE) using jet substructure variables.
+The current performance of these algorithms is shown in Fig.~\ref{fig:svjtaggers}, quantified by integrating the receiver-operator characteristic (ROC) curve to produce the area under the curve (AUC).
+A comparable ParticleNet-based supervised tagger for EMJs has AUC scores of 0.97--0.99, indicating that it is markedly more difficult to distinguish SVJs from QCD jets.
+
+\begin{figure}[htb!]
+\centering
+\twofigeqh{figures/rocScoreSigP2DQCD_rinv.pdf}{figures/WNAE_performance_from_SVJ_t_channel_status_update_2024_02_06-2.pdf}
+\caption{The AUC performance of the latest SVJ taggers: supervised ParticleNet (left) and unsupervised Wasserstein normalized autoencoder (right).
+A score of 1.0 would indicate perfect discrimination between signal and background jets.}
+\label{fig:svjtaggers}
+\end{figure}
+
+The AE only learns to reconstruct common SM background processes and therefore discriminates against other processes by failing to reconstruct their kinematic features.
+The PI was among the first to demonstrate the autoencoders could discriminate between SM QCD jets and SVJs, even surpassing a supervised tagger when applied to a different model~\cite{}.
+To achieve discrimination against \ttbar jets, the normalized autoencoder (NAE) formalism~\cite{} was adopted in order to minimize complexity bias.
+The team developed a completely novel method to stabilize the training by directly minimizing the Wasserstein or earth mover's distance
+between samples drawn from the input data and from the latent representation of the autoencoder, resulting in the WNAE.
+This approach is also now being applied to improve the performance of the AXOL1TL anomaly trigger.
+
+For the Run 3 SVJ search, we will develop a new tagger combining the best features of both approaches:
+a graph-based autoencoder (GAE), using the Lund plane representation following Refs.~\cite{} and trained with the WNAE approach.
+Early attempts indicate the WNGAE could approach the performance level of the supervised tagger, while remaining naturally model-independent.
+While these taggers are initially trained using simulated events,
+the semi-supervised universal domain adaptation technique developed by the PI and his collaborators~\cite{}
+will be employed to ensure similar performance on data by only allowing physically invariant features to be learned.
+
+\subsection{Dark QCD Scan}\label{subsec:darkscan}
+
+While this proposal focuses on SVJs, there are other dark QCD phenomena.
+EMJs may form if the unstable dark hadrons have a lifetime \taudark, leading to multiple displaced vertices within a single jet.
+SUEPs occur when there is a large 't Hooft coupling strength $\thooft = \gdark^2 \Ncdark$,
+resulting in a high multiplicity of low-momentum tracks from unsuppressed large angle emissions, rather than collimated jets.
+The CMS Dark QCD team has recently released new results for both signatures in Refs.~\cite{},
+following the first CMS EMJ search with a small dataset~\cite{Sirunyan:2018njd}.
+Conducting separate searches for each phenomenon is important to understand the kinematic phase space and behavior associated with these new models.
 
 \begin{figure}[htb!]
 \centering
@@ -85,3 +148,36 @@ A score of 1.0 would indicate perfect discrimination between signal and backgrou
 \caption{A diagram illustrating the phenomena and search strategies with maximal acceptance for different combinations of dark QCD parameters.}
 \label{fig:svjacc}
 \end{figure}
+
+However, it is not required, or even necessarily likely, that each of these phenomena should appear in isolation.
+It is entirely possible that nature could produce semivisible emerging SUEPs or any other combination.
+Figure~\ref{fig:svjacc} illustrates the interplay between three characteristic parameters:
+the dark meson lifetime $\taudark$, the invisible fraction $\rinv$, and the 't Hooft coupling \thooft.
+For large values of \rinv and \taudark, the pre-existing searches for large \met would still be the most effective.
+However, for intermediate values of those parameters, a dedicated strategy might outperform any of the individual searches noted above.
+The best strategies for intermediate or large values of \thooft in combination with the other parameters remain an open question.
+The generation of physically realistic events at intermediate \thooft has only recently become possible~\cite{Cesarotti:2020uod}.
+
+All of these search strategies might need adjustments for other parameters,
+such as the mediator masses and couplings and the various dark sector parameters discussed in Section~\ref{subsec:models}.
+The most feasible way to explore this large parameter space is using a multidimensional scan,
+similar to scans of the phenomenological minimal supersymmetric standard model (pMSSM)~\cite{Djouadi:1998di}
+provided by CMS for earlier datasets~\cite{Khachatryan:2016nvf,SUS-16-033-supp} and currently in preparation for Run 2 by the PI and his colleagues.
+Much like the pMSSM, this scan will include many random parameter combinations, with existing constraints included to avoid models that are already ruled out.
+We will reinterpret the latest dark QCD searches from LHC Runs 2 and 3 to understand which of these combined models are effectively excluded and which are not covered.
+Finding uncovered models will direct efforts to design new search strategies, including dedicated triggers, for the upcoming HL-LHC runs.
+The combined models will also help to further characterize any observed signal, which would likely have intermediate values of some parameters.
+
+Obtaining the strongest results from the dark QCD scan relies on the success of the Run 3 SVJ search.
+The proposed strategy includes several new elements, any of which may not converge on the necessary timescale.
+However, each new element is independent from the others, and reasonable fallback options exist to mitigate these risks:
+\begin{enumerate}
+\item \textit{Model building}: if a comprehensive set of new benchmarks is not available, the existing models can be used, at the cost of potentially reduced coverage of the model space.
+\item \textit{Anomaly triggers}: if the anomaly trigger performance is not sufficient, the Run 2 trigger strategy can be used, at the cost of more effort to analyze multiple datasets with a less unified strategy.
+\item \textit{SVJ taggers}: if the WNGAE encounters difficulties, the existing tagger architectures can be reused, at the cost of decreased tagging performance or increased model dependence. (The same applies to other AI algorithms, which can be substituted with standard techniques at the cost of increased uncertainty or decreased sensitivity.)
+\end{enumerate}
+Ultimately, these elements provide additional gains over the use of the Run 3 dataset, which is larger and higher energy than the Run 2 dataset.
+The basic discovery potential grows by up to X\% when going from $\sqrt{s} = 13$ to 13.6\TeV and integrated luminosity of 138 to ${\sim}$190--260\fbinv.
+
+% todo: add plot showing discovery significance for Run 2 vs Run 3, taking into account sqrt(s), lumi
+
