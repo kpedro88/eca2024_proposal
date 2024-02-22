@@ -101,7 +101,7 @@ For all resonant cases, we will use optimal mass variables designed by semi-supe
 In the nonresonant case, the search must be performed in the tail of the \ptmiss distribution;
 however, using the same dataset and sharing most event selection criteria with the resonant searches will significantly streamline the effort.
 Even a common background estimation technique will be employed, utilizing the new ``closure loss'' developed by the PI and his colleagues,
-which optimizes the output of a neural network to be able to perform an ``ABCD'' background estimation using three control regions in observed data~\cite{}.
+which optimizes the output of a neural network to be able to perform an ``ABCD'' background estimation using three control regions in observed data~\cite{Crossman:2023aps}.
 
 The most important element will be the identification or ``tagging'' of SVJs, which is the only way to reduce the large SM backgrounds beyond basic event-level kinematic selections.
 From the original BDT, the team has progressed to more sophisticated approaches:
@@ -122,7 +122,7 @@ The AE only learns to reconstruct common SM background processes and therefore d
 The PI was among the first to demonstrate the autoencoders could discriminate between SM QCD jets and SVJs, even surpassing a supervised tagger when applied to a signal model not used during training~\cite{Canelli:2021aps}.
 To achieve discrimination against \ttbar jets, the normalized autoencoder (NAE) formalism~\cite{Dillon:2022mkq} was adopted in order to minimize complexity bias.
 The team developed a completely novel method to stabilize the training by directly minimizing the Wasserstein or earth mover's distance
-between samples drawn from the input data and from the latent representation of the autoencoder, resulting in the WNAE.
+between samples drawn from the input data and from the latent representation of the autoencoder, resulting in the WNAE~\cite{Eble:2024tpr}.
 This approach is also now being applied to improve the performance of the AXOL1TL anomaly trigger.
 
 For the Run 3 SVJ search, we will develop a new tagger combining the best features of both approaches:
