@@ -66,12 +66,12 @@ which is both a useful stepping stone and an important ingredient for the dark Q
 \subsection{Refinement}\label{subsec:refine}
 
 Conditional distillation is particularly interesting because it offers one path to enhance the existing CMS fast simulation chain (FastSim)~\cite{}.
-Refining a low-quality simulation to obtain high-quality output was the objective of the PI's previous denoising project, which less used a less sophisticated AI architecture~\cite{}.
+Refining a low-quality simulation to obtain high-quality output was the objective of the PI's previous denoising project, which used a less sophisticated AI architecture~\cite{}.
 Diffusion models are much more capable, but so far the ``fully generative'' approach (producing a shower from pure noise) has been pursued;
 this is because the sampling algorithms applied during the inference steps rely on the Gaussian nature of the noise.
-The differences between FastSim and \GEANTfour will not be Gaussian, so while it should be easier to learn the difference between two similar distributions,
+The differences between FastSim and \GEANTfour will not be Gaussian, so while it is easier in principle to learn the difference between two similar distributions,
 additional mathematical formalism must be derived in order to reuse the existing diffusion approach.
-Instead, conditional distillation combines generation from pure noise with information from FastSim to modify the model to generate high-quality output in just one inference step.
+Instead, conditional distillation combines uses information from FastSim to supplement the fully generative approach, modifying the model to generate high-quality output in just one inference step.
 
 The PI and his team have also developed a complementary high-level refinement, directly targeting analysis-level variables~\cite{}.
 This algorithm includes the first use of the modified differential method of multipliers~\cite{} in HEP,
@@ -84,7 +84,7 @@ high-level refinement alone can substantially reduce the quality deficits in Fas
 
 \begin{figure}[htb!]
 \centering
-\includegraphics[width=0.5\myfigurewidth]{figures/Regression_20221127_DeepFlavB_preliminary}
+\includegraphics[width=0.5\myfigurewidth]{figures/Regression_20221127_DeepFlavB_preliminary.pdf}
 \caption{The distribution of the \DEEPJET \cPqb-jet tagging discriminator, comparing \GEANTfour (FullSim), FastSim, and refined FastSim.}
 \label{fig:refine}
 \end{figure}
@@ -92,10 +92,51 @@ high-level refinement alone can substantially reduce the quality deficits in Fas
 The combination of diffusion and refinement will be even more powerful.
 In the chain FastSim~$\to$~diffusion~$\to$~refinement, each ML algorithm solves a progressively easier problem,
 because the difference with respect to the previous step is smaller.
-Therefore, it can learn the solution more precisely from a given dataset size, incorporating physics at different scales.
+Therefore, it can learn the solution more precisely from a given dataset size,
+as well as incorporating physics at different levels (individual detector hits and reconstructed kinematic variables).
 Essentially, refinement will address any residual disagreements between FastSim-based \diffu and \GEANTfour,
 resulting in a more accurate final product, much like next-to-leading order matrix element calculations increase in accuracy by incorporating higher-order effects.
 
 \subsection{Inference as a Service}\label{subsec:iaas}
+
+As noted in Section~\ref{subsec:diffu}, the maximum speedup for AI-based simulation is achieved by performing inference on GPU
+and generating showers for ${\sim}100$ particles simultaneously.
+In order to reliably fill the GPU register, particles from multiple events must be processed together.
+In addition, most CPUs in the Worldwide LHC Computing Grid currently are not directly connected to GPUs.
+These considerations necessitate a flexible implementation of AI-based simulation algorithms in the experiment software framework.
+As one of the only people to have implemented an alternative simulation engine in CMSSW~\cite{Pedro:2020kbk}
+and the lead developer of the SONIC approach for inference as a service,
+the PI has nearly unparalleled expertise in this area.
+
+\begin{figure}[htb!]
+\centering
+\includegraphics[width=0.5\myfigurewidth]{figures/MLG-23-001_Figure_009.pdf}
+\caption{The event processing throughput for workflows using CPUs at Purdue without SONIC, with SONIC connecting to GPUs at Purdue, and with SONIC connecting to GPUs at GCP in Iowa.}
+\label{fig:sonic}
+\end{figure}
+
+SONIC enables access to heterogeneous coprocessor resources via a client-server approach
+and has demonstrated inference acceleration by multiple orders of magnitude on GPUs, FPGAs, and intelligence processing units (IPUs).
+Figure~\ref{fig:sonic} shows the most recent results for SONIC in CMS~\cite{}:
+in an official data processing workflow, the use of GPUs completely eliminates the impact of AI algorithm inference on total throughput,
+and the use of asynchronous, non-blocking requests~\cite{Bocci:2020olh} further eliminates the impact of client-server latency at least up to a distance of hundreds of kilometers.
+SONIC minimizes programming and maintenance burdens while maximizing portability, efficiency, and accessibility.
+A single coprocessor, located anywhere, can serve tens or even hundreds of CPU processes.
+The underlying framework takes advantage of open-source tools, including the Nvidia Triton inference server~\cite{nvidia} and advances in machine learning packages.
+
+The final product of this work is an AI-augmented simulation engine
+that carries out rule-based algorithms on local CPUs and AI inference on remote GPUs via SONIC.
+The fully generative diffusion model will be implemented within the \GEANTfour interface, in order to validate its performance against the highest quality simulation.
+(A complete validation requires comparison of reconstruction-level quantities that can only be computed using the entire CMSSW processing chain.)
+The FastSim-based diffusion model will be implemented within the CMS FastSim application, in combination with high-level refinement, to deliver the fastest high-quality simulation.
+The technologies and innovations in this part of the proposal have mostly been proven to work in other contexts, as shown above.
+Viable alternatives exist to mitigate the risks from the new elements:
+\begin{enumerate}
+\item \textit{Faster diffusion}: if the various approaches to speed up the fully generative diffusion model do not succeed, this will reduce the amount of simulation that can be produced, thought it is still expected to exceed \GEANTfour when running in batches on GPU. As a fallback, the existing FastSim can be used in combination with high-level refinement to achieve some reduction in uncertainty.
+\item \textit{FastSim-based diffusion}: if the combination of the diffusion model with the existing FastSim is not viable, the fully generative diffusion model can be used, or high-level refinement can be used alone (see above).
+\item \textit{SONIC implementation}: if unforeseen complications are encountered in the use of inference as a service, directly-connected GPUs can be employed, at the cost of limiting the computing sites where simulation can be run effectively.
+\end{enumerate}
+The AI-augmented simulation engine will be ready by the end of Run 3 to enable the comprehensive dark QCD scan (Section~\ref{subsec:darkscan})
+and to be employed for HL-LHC simulations preparing for Run 4 and beyond.
 
 \subsection{Future Colliders}\label{subsec:mucoll}
