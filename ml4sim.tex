@@ -140,3 +140,37 @@ The AI-augmented simulation engine will be ready by the end of Run 3 to enable t
 and to be employed for HL-LHC simulations preparing for Run 4 and beyond.
 
 \subsection{Future Colliders}\label{subsec:mucoll}
+
+If a hidden valley exists but only couples to the SM via mediators at the 10\TeV scale, collider DM production will require a future, higher energy accelerator.
+The new P5 report~\cite{P5:2023} specifically highlights a muon collider as an attractive option to reach parton center-of-mass energies of 10\TeV,
+both because of its compact footprint and because of the numerous technological innovations and synergies that would be achieved in the course of constructing and operating this machine.
+While the collider itself is several decades away, the report highlights that research and development must start now.
+Simulation is a crucial component of the design process for both the detectors and the collider,
+and the machine-detector interface (MDI) is particularly important for the muon collider.
+The MDI must incorporate mitigations for the beam-induced background (BIB) caused by muon decays in flight as the beam circulates.
+At $\sqrt{s_{\Pgm\Pgm}} = 10\TeV$, there are ${\sim}10^5$ muon decays per meter, leading to ${\sim}10^8$ photons and neutrons per bunch crossing~\cite{}.
+
+Currently, it takes 24 hours to simulate just one BIB event with \GEANTfour.
+AI-based BIB simulation, therefore, would be highly impactful for muon collider, detector, and MDI design.
+While \diffu is trained on single-particle events, because material interactions in \GEANTfour are modeled independently for every particle,
+it may not be feasible to continue such an approach for events with $10^8$ particles.
+This can be addressed by implementing a ``grouped'' approach, in which similar particles are grouped together to train the diffusion model to generate their energy deposits together.
+However, as previously noted, the output of the diffusion model must be validated by comparison to full simulation to ensure its reliability.
+It is a challenging prospect for \GEANTfour even to produce a sufficient validation sample at these multiplicities.
+This is an area where the new GPU-based simulation engine Celeritas offers several advantages.
+The physics processes by which photons and neutrons deposit energy are limited,
+with electromagnetic (EM) processes already implemented in Celeritas and neutron transport implemented in its predecessor Shift~\cite{}.
+The staggering multiplicity of BIB particles will ensure efficient use of GPUs for optimal throughput.
+In these conditions, Celeritas may provide up to a factor 40 speedup compared to \GEANTfour~\cite{}.
+
+After further refinement of \diffu using CMS calorimeter datasets of widely varying complexity,
+we will apply the algorithm to simulate BIB for muon collider detector design.
+The results will be validated against Celeritas simulations incorporating EM and neutron physics and the MDI geometry.
+Based on existing results, we expect \diffu to provide a significant speedup even compared to Celeritas.
+This combination of new approaches to simulation illustrates another facet of the synergies in the proposed muon collider program.
+Further, given that BIB events also consume substantial disk space, 8--36 GB per event,
+encoding this information in a diffusion model can be considered a form of compression:
+the model trades disk usage for computing power by being able to generate BIB events on the fly,
+requiring only $\mathcal{O}(\text{MB})$ learned weights and a source of randomness.
+This novel application of AI-based simulation will facilitate improved designs and
+more accurate projections of the physics potential for the possible next generation of the energy frontier.
