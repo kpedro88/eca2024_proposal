@@ -22,16 +22,16 @@ To generate new images, this process is reversed, starting from pure noise to pr
 The PI and his team developed the \diffu algorithm for the \challenge,
 a recent community effort to compare different AI approaches to the simulation of particle showers in calorimeters, using common datasets and metrics.
 The datasets include sampling calorimeters with varying materials and granularities and different particles including photons, pions, and electrons.
-\diffu uses a convolutional U-net architecture~\cite{}, along with several innovations to handle the non-rectangular and sometimes irregular geometry of calorimeters.
+\diffu uses a convolutional U-net architecture~\cite{Ronneberger:2015}, along with several innovations to handle the non-rectangular and sometimes irregular geometry of calorimeters.
 The convolution operations are \textit{cylindrical}, accounting for periodicity in the azimuthal angle $\phi$.
 The convolutions are \textit{conditional} on the longitudinal and radial coordinates, to account for violations of translation invariance in particle shower evolution.
 Finally, a novel approach called Geometry Latent Mapping (\glam) is employed:
 the model can learn two matrices that map between the calorimeter's irregular geometry and a regular grid suitable for convolutions.
 Figure~\ref{fig:calodiffu} (left) shows results from the \challenge on the pion dataset, clearly demonstrating the superiority of \diffu,
-which is found to produce the highest quality showers for all datasets~\cite{}.
-The algorithms are compared based on metrics including classifier scores and the Fr\'echet particle distance~\cite{}.
-This version of the algorithm is published in Ref.~\cite{};
-subsequently, the quality has been improved even further, as shown in Fig.~\ref{calodiffu} (right), by adding a separate module that learns the per-layer deposited energy.
+which is found to produce the highest quality showers for all datasets~\cite{Krause:2023mlj}.
+The algorithms are compared based on metrics including classifier scores and the Fr\'echet particle distance~\cite{Kansal:2022spb}.
+This version of the algorithm is published in Ref.~\cite{Amram:2023onf};
+subsequently, the quality has been improved even further, as shown in Fig.~\ref{fig:calodiffu} (right), by adding a separate module that learns the per-layer deposited energy.
 
 \begin{figure}[htb!]
 \centering
@@ -45,10 +45,10 @@ The major remaining area for improvement in \diffu is its speed.
 While it can still run 10--100 times faster than \GEANTfour by processing particles in large batches on GPUs,
 the initial version required 400 denoising iterations or ``steps'' to produce high-quality output.
 The improved version requires a factor of 4--8 fewer steps, depending on the dataset, because of its intrinsically higher quality.
-More recently, some of the PI's colleagues have used \diffu as a platform to test further improvements to both the training and inference~\cite{},
-and the most promising of these have been integrated into the model~\cite{}.
+More recently, some of the PI's colleagues have used \diffu as a platform to test further improvements to both the training and inference~\cite{Jiang:2024ohg},
+and the most promising of these have been integrated into the model~\cite{Amram:GitHub}.
 Numerous other avenues to make the algorithm faster while preserving quality are under investigation,
-including latent diffusion~\cite{}, consistency models~\cite{}, and conditional distillation~\cite{}.
+including latent diffusion~\cite{Rombach:2022}, consistency models~\cite{Song:2023}, and conditional distillation~\cite{Mei:2023}.
 These illustrate a critical advantage of diffusion models:
 because of the massive interest in these models in the broader ML community and in industry,
 new methods are constantly being developed that can be easily imported for HEP use cases,
@@ -58,23 +58,23 @@ Here, we propose to adapt \diffu to the more complex and variable CMS geometry.
 The most involved case will be the High Granularity Calorimeter (HGCal), a part of the HL-LHC detector upgrades
 that will increase the number of channels by almost two orders of magnitude.
 The HGCal will have both hexagonal and rectangular cells in different regions, with different material types and thicknesses.
-It is also the major driver of the predicted increase in \GEANTfour simulation time~\cite{}.
+It is also the major driver of the predicted increase in \GEANTfour simulation time~\cite{Pedro:2020kbk}.
 Further optimizations of the \diffu model will be needed to handle the high dimensionality and precision requirements of this new detector.
 First, we will adapt the model to the existing, simpler CMS calorimeters,
 which is both a useful stepping stone and an important ingredient for the dark QCD scan (Section~\ref{subsec:darkscan}).
 
 \subsection{Refinement}\label{subsec:refine}
 
-Conditional distillation is particularly interesting because it offers one path to enhance the existing CMS fast simulation chain (FastSim)~\cite{}.
-Refining a low-quality simulation to obtain high-quality output was the objective of the PI's previous denoising project, which used a less sophisticated AI architecture~\cite{}.
+Conditional distillation is particularly interesting because it offers one path to enhance the existing CMS fast simulation chain (FastSim)~\cite{Sekmen:2016iql}.
+Refining a low-quality simulation to obtain high-quality output was the objective of the PI's previous denoising project, which used a less sophisticated AI architecture~\cite{Banerjee:2022gkg}.
 Diffusion models are much more capable, but so far the ``fully generative'' approach (producing a shower from pure noise) has been pursued;
 this is because the sampling algorithms applied during the inference steps rely on the Gaussian nature of the noise.
 The differences between FastSim and \GEANTfour will not be Gaussian, so while it is easier in principle to learn the difference between two similar distributions,
 additional mathematical formalism must be derived in order to reuse the existing diffusion approach.
 Instead, conditional distillation combines uses information from FastSim to supplement the fully generative approach, modifying the model to generate high-quality output in just one inference step.
 
-The PI and his team have also developed a complementary high-level refinement, directly targeting analysis-level variables~\cite{}.
-This algorithm includes the first use of the modified differential method of multipliers~\cite{} in HEP,
+The PI and his team have also developed a complementary high-level refinement, directly targeting analysis-level variables~\cite{Bein:2023ylt}.
+This algorithm includes the first use of the modified differential method of multipliers~\cite{Platt:1987} in HEP,
 which automatically balances a tradeoff between ensemble and per-event comparisons when training the network.
 With promising results on \cPqb-jet tagging variables, shown in Fig.~\ref{fig:refine},
 the algorithm is now being expanded to cover other jet-related variables and validated for use in Run 3.
@@ -117,7 +117,7 @@ the PI has nearly unparalleled expertise in this area.
 
 SONIC enables access to heterogeneous coprocessor resources via a client-server approach
 and has demonstrated inference acceleration by multiple orders of magnitude on GPUs, FPGAs, and intelligence processing units (IPUs).
-Figure~\ref{fig:sonic} shows the most recent results for SONIC in CMS~\cite{}:
+Figure~\ref{fig:sonic} shows the most recent results for SONIC in CMS~\cite{CMS:2024twn}:
 in an official data processing workflow, the use of GPUs completely eliminates the impact of AI algorithm inference on total throughput,
 and the use of asynchronous, non-blocking requests~\cite{Bocci:2020olh} further eliminates the impact of client-server latency at least up to a distance of hundreds of kilometers.
 SONIC minimizes programming and maintenance burdens while maximizing portability, efficiency, and accessibility.
@@ -148,7 +148,7 @@ While the collider itself is several decades away, the report highlights that re
 Simulation is a crucial component of the design process for both the detectors and the collider,
 and the machine-detector interface (MDI) is particularly important for the muon collider.
 The MDI must incorporate mitigations for the beam-induced background (BIB) caused by muon decays in flight as the beam circulates.
-At $\sqrt{s_{\Pgm\Pgm}} = 10\TeV$, there are ${\sim}10^5$ muon decays per meter, leading to ${\sim}10^8$ photons and neutrons per bunch crossing~\cite{}.
+At $\sqrt{s_{\Pgm\Pgm}} = 10\TeV$, there are ${\sim}10^5$ muon decays per meter, leading to ${\sim}10^8$ photons and neutrons per bunch crossing~\cite{Black:2022cth}.
 
 Currently, it takes 24 hours to simulate just one BIB event with \GEANTfour.
 AI-based BIB simulation, therefore, would be highly impactful for muon collider, detector, and MDI design.
@@ -159,9 +159,9 @@ However, as previously noted, the output of the diffusion model must be validate
 It is a challenging prospect for \GEANTfour even to produce a sufficient validation sample at these multiplicities.
 This is an area where the new GPU-based simulation engine Celeritas offers several advantages.
 The physics processes by which photons and neutrons deposit energy are limited,
-with electromagnetic (EM) processes already implemented in Celeritas and neutron transport implemented in its predecessor Shift~\cite{}.
+with electromagnetic (EM) processes already implemented in Celeritas and neutron transport implemented in its predecessor Shift~\cite{Hamilton:2018}.
 The staggering multiplicity of BIB particles will ensure efficient use of GPUs for optimal throughput.
-In these conditions, Celeritas may provide up to a factor 40 speedup compared to \GEANTfour~\cite{}.
+In these conditions, Celeritas may provide up to a factor 40 speedup compared to \GEANTfour~\cite{Tognini:2022nmd}.
 
 After further refinement of \diffu using CMS calorimeter datasets of widely varying complexity,
 we will apply the algorithm to simulate BIB for muon collider detector design.
