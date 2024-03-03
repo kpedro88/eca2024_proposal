@@ -82,12 +82,12 @@ The approach can be understood as a significantly more precise, correlation-pres
 Given that the CMS FastSim currently only agrees with \GEANTfour to within ${\sim}10\%$,
 high-level refinement alone can substantially reduce the quality deficits in FastSim samples and the resulting uncertainties.
 
-\begin{figure}[htb!]
+\begin{wrapfigure}[20]{L}{0.5\textwidth}
 \centering
-\includegraphics[width=0.5\myfigurewidth]{figures/Regression_20221127_DeepFlavB_preliminary.pdf}
+\includegraphics[width=0.49\myfigurewidth]{figures/Regression_20221127_DeepFlavB_preliminary.pdf}
 \caption{The distribution of the \DEEPJET \cPqb-jet tagging discriminator, comparing \GEANTfour (FullSim), FastSim, and refined FastSim.}
 \label{fig:refine}
-\end{figure}
+\end{wrapfigure}
 
 The combination of diffusion and refinement will be even more powerful.
 In the chain FastSim~$\to$~diffusion~$\to$~refinement, each ML algorithm solves a progressively easier problem,
@@ -108,12 +108,12 @@ As one of the only people to have implemented an alternative simulation engine i
 and the lead developer of the SONIC approach for inference as a service,
 the PI has nearly unparalleled expertise in this area.
 
-\begin{figure}[htb!]
+\begin{wrapfigure}[16]{r}{0.5\textwidth}
 \centering
-\includegraphics[width=0.5\myfigurewidth]{figures/MLG-23-001_Figure_009.pdf}
-\caption{The event processing throughput for workflows using CPUs at Purdue: without SONIC, with SONIC connecting to Purdue GPUs, and with SONIC connecting to GCP GPUs in Iowa.}
+\includegraphics[width=0.49\myfigurewidth]{figures/MLG-23-001_Figure_009.pdf}
+\caption{The event processing throughput for CPU-based workflows: without GPUs, with local GPUs, and with remote GPUs.}
 \label{fig:sonic}
-\end{figure}
+\end{wrapfigure}
 
 SONIC enables access to heterogeneous coprocessor resources via a client-server approach
 and has demonstrated inference acceleration by multiple orders of magnitude on GPUs, FPGAs, and intelligence processing units (IPUs).

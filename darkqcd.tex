@@ -46,7 +46,7 @@ Even the simple cut-based model-independent strategy offers a noticeable improve
 % centered, fixed-width column type
 \newcolumntype{C}[1]{w{c}{#1}}
 \newlength\searchlen
-\setlength\searchlen{1cm}
+\setlength\searchlen{.8cm}
 \newlength\searchlena
 \setlength\searchlena{2\searchlen}
 \newlength\searchlenb
@@ -54,7 +54,7 @@ Even the simple cut-based model-independent strategy offers a noticeable improve
 \newlength\searchlenc
 \setlength\searchlenc{6\searchlen}
 
-\begin{table}[!hbtp]
+\begin{wraptable}{R}{0.5\textwidth}
 \vspace{\myfigurespacing}
 \centering
 \begin{tabular}{c|*{6}{C{\searchlen}}}
@@ -70,7 +70,7 @@ Even the simple cut-based model-independent strategy offers a noticeable improve
 \vspace{\myfigureskip}
 \caption{A summary of the conventional trigger options to target different mediators and mass ranges for SVJ production.}
 \label{tab:conventional}
-\end{table}
+\end{wraptable}
 
 Subsequently, the PI has developed several more searches, now nearing completion, that use the LHC Run 2 dataset to target different mass ranges and production modes:
 low-mass \PZprime, intermediate-mass \PZprime, and nonresonant $t$-channel production through a bifundamental scalar mediator \Pbifun,
