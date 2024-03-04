@@ -4,6 +4,7 @@
 \usepackage{makecell}
 \usepackage{setspace}
 \usepackage{wrapfig}
+\usepackage{floatrow}
 \usepackage{heppennames2}
 \usepackage{ptdr-definitions}
 \pdfobjcompresslevel=0
@@ -47,3 +48,4 @@
 
 \newcommand{\twofigeqh}[2]{\resizebox{\myfigurewidth}{!}{\includegraphics[height=\myfigureheight]{#1}\hspace{\myfigureskipeqh}\includegraphics[height=\myfigureheight]{#2}}}
 \newcommand{\threefigeqh}[3]{\resizebox{\myfigurewidth}{!}{\includegraphics[height=\myfigureheight]{#1}\hspace{\myfigureskipeqh}\includegraphics[height=\myfigureheight]{#2}\hspace{\myfigureskipeqh}\includegraphics[height=\myfigureheight]{#3}}}
+\newfloatcommand{capbtabbox}{table}[][\FBwidth]

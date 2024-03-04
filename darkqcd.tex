@@ -23,25 +23,7 @@ reflecting new understanding about degeneracies in the model space and any nontr
 This new set of benchmarks can guide the Run 3 search strategy to ensure the entire known phase space is covered
 and can serve to unify the efforts of different experimental collaborations, which currently study different models.
 
-\subsection{Strategy}\label{subsec:strategy}
-
-\begin{figure}[htb!]
-\centering
-\twofigeqh{figures/comp_limit_dijet_new_svj_monojet_2d.pdf}{{figures/comp_gq_dijet_orig_svj_monojet_rinv0.3}.pdf}
-\caption{Excluded regions of the \mZprime-\rinv plane (left) and limits on \gq (right) from the SVJ search, dijet search, and monojet search.
-}
-\label{fig:svjexcl}
-\end{figure}
-
-The PI led the first search for semivisible jets, published in Ref.~\cite{CMS:2021dzg}, which targeted $s$-channel production via a massive \PZprime mediator.
-This is the first dedicated analysis of collider events with jets aligned with missing transverse momentum,
-a signature that usually arises in the SM via undermeasurement of a jet from a QCD multijet process.
-This work built on the PI's previous leadership of searches for strongly-produced supersymmetric particles in hadronic final states~\cite{Khachatryan:2016kdk,Sirunyan:2017cwe,Sirunyan:2019hzr,Sirunyan:2019ctn,CMS:2023xlp}.
-The search also introduced the dual strategy of providing both model-independent and model-dependent results,
-with the latter utilizing a boosted decision tree (BDT) trained to identify SVJs from specific signal models using high-level variables focusing on jet substructure.
-Figure~\ref{fig:svjexcl} compares the mass and coupling exclusions from this search to the dijet resonance search, which targets the complementary process $\PZprime \to \cPq\cPaq$,
-and the monojet search, which targets a signature of simplified DM models, \ptmiss in association with an initial-state radiation (ISR) jet.
-Even the simple cut-based model-independent strategy offers a noticeable improvement over other searches in the area around $\rinv=0.3$, where the acceptance is maximized.
+\subsection{Run 2 Searches}\label{subsec:run2}
 
 % centered, fixed-width column type
 \newcolumntype{C}[1]{w{c}{#1}}
@@ -54,23 +36,38 @@ Even the simple cut-based model-independent strategy offers a noticeable improve
 \newlength\searchlenc
 \setlength\searchlenc{6\searchlen}
 
-\begin{wraptable}{R}{0.5\textwidth}
-\vspace{\myfigurespacing}
+\begin{figure}[htb!]
+\begin{floatrow}
+\ffigbox{%
 \centering
-\begin{tabular}{c|*{6}{C{\searchlen}}}
+\includegraphics[width=0.49\textwidth]{figures/comp_limit_dijet_new_svj_monojet_2d.pdf}
+}{\caption{Excluded regions of the \mZprime-\rinv plane from the SVJ search, dijet search, and monojet search.\label{fig:svjexcl}}}
+\capbtabbox{%
+\centering
+\begin{tabular}{|c|*{6}{C{\searchlen}}|}
 \hline
-\multirow{2}{*}{Mediator} & \multicolumn{6}{C{\searchlenc}}{Mass range} \\
-& \multicolumn{2}{C{\searchlena}}{Low} & \multicolumn{2}{C{\searchlena}}{Medium} & \multicolumn{2}{C{\searchlena}}{High} \\
+\multirow{2}{*}{Mediator} & \multicolumn{6}{C{\searchlenc}|}{Mass range} \\
+& \multicolumn{2}{C{\searchlena}}{Low} & \multicolumn{2}{C{\searchlena}}{Medium} & \multicolumn{2}{C{\searchlena}|}{High} \\
 \hline
-\PZprime & \multicolumn{2}{C{\searchlena}}{\cellcolor{yellow!50}\makecell{standard\\(boosted)}} & \multicolumn{2}{C{\searchlena}}{\cellcolor{magenta!50}\makecell{scouting\\\vphantom{(boosted)}}} & \multicolumn{2}{C{\searchlena}}{\cellcolor{orange!50}\makecell{standard\\\vphantom{(boosted)}}} \\
+\PZprime & \multicolumn{2}{C{\searchlena}}{\cellcolor{yellow!50}\makecell{standard\\(boosted)}} & \multicolumn{2}{C{\searchlena}}{\cellcolor{magenta!50}\makecell{scouting\\\vphantom{(boosted)}}} & \multicolumn{2}{C{\searchlena}|}{\cellcolor{orange!50}\makecell{standard\\\vphantom{(boosted)}}} \\
 \hline
-\Pbifun & \multicolumn{3}{C{\searchlenb}}{\cellcolor{orange!50}\makecell{standard\\\vphantom{(boosted)}}} & \multicolumn{3}{C{\searchlenb}}{\cellcolor{magenta!50}\makecell{scouting\\\vphantom{(boosted)}}} \\
+\Pbifun & \multicolumn{3}{C{\searchlenb}}{\cellcolor{orange!50}\makecell{standard\\\vphantom{(boosted)}}} & \multicolumn{3}{C{\searchlenb}|}{\cellcolor{magenta!50}\makecell{scouting\\\vphantom{(boosted)}}} \\
 \hline
 \end{tabular}
 \vspace{\myfigureskip}
-\caption{A summary of the conventional trigger options to target different mediators and mass ranges for SVJ production.}
-\label{tab:conventional}
-\end{wraptable}
+}{\caption{A summary of the conventional trigger options to target different mediators and mass ranges for SVJ production.\label{tab:conventional}}}
+\end{floatrow}
+\end{figure}
+
+The PI led the first search for semivisible jets, published in Ref.~\cite{CMS:2021dzg}, which targeted $s$-channel production via a massive \PZprime mediator.
+This is the first dedicated analysis of collider events with jets aligned with missing transverse momentum,
+a signature that usually arises in the SM via undermeasurement of a jet from a QCD multijet process.
+This work built on the PI's previous leadership of searches for strongly-produced supersymmetric particles in hadronic final states~\cite{Khachatryan:2016kdk,Sirunyan:2017cwe,Sirunyan:2019hzr,Sirunyan:2019ctn,CMS:2023xlp}.
+The search also introduced the dual strategy of providing both model-independent and model-dependent results,
+with the latter utilizing a boosted decision tree (BDT) trained to identify SVJs from specific signal models using high-level variables focusing on jet substructure.
+Figure~\ref{fig:svjexcl} compares the mass and coupling exclusions from this search to the dijet resonance search, which targets the complementary process $\PZprime \to \cPq\cPaq$,
+and the monojet search, which targets a signature of simplified DM models, \ptmiss in association with an initial-state radiation (ISR) jet.
+Even the simple cut-based model-independent strategy offers a noticeable improvement over other searches in the area around $\rinv=0.3$, where the acceptance is maximized.
 
 Subsequently, the PI has developed several more searches, now nearing completion, that use the LHC Run 2 dataset to target different mass ranges and production modes:
 low-mass \PZprime, intermediate-mass \PZprime, and nonresonant $t$-channel production through a bifundamental scalar mediator \Pbifun,
@@ -80,7 +77,9 @@ These include conventional triggers based on jet \pt, \HT (the scalar sum of jet
 triggering on ISR jet \pt in a boosted topology;
 and the use of data scouting, in which a lower threshold in the \HT trigger is enabled by storing only partial event information~\cite{Mukherjee:2019anz}.
 
-Here, we propose a new, unified trigger strategy in Run 3, made possible by the introduction of anomaly detection triggers that exploit unsupervised AI.
+\subsection{Run 3 Strategy}\label{subsec:strategy}
+
+We propose a new, unified trigger strategy in Run 3, made possible by the introduction of anomaly detection triggers based on unsupervised AI.
 Two complementary algorithms are available: CICADA~\cite{CMS-DP-2023-086}, which looks for anomalous calorimeter clusters, and AXOL1TL~\cite{CMS-DP-2023-079}, which looks for global anomalies.
 These algorithms are developed by the PI's Fermilab, CERN, and LPC colleagues, and the PI has been involved with validating and improving the performance of these triggers on dark QCD models;
 the latest results are shown in Fig.~\ref{fig:svjanomaly}.
@@ -95,17 +94,28 @@ which will facilitate sensitivity to more models and smaller couplings.
 \end{figure}
 
 We will further unify the offline analysis strategy to cover all production modes.
-Currently, no search targets resonant production of \Pbifun, which can occur singly in association with a low-\pt SVJ, or in a pair;
-the resonant production modes are more prominent for low mediator mass and small \sbifun.
-For all resonant cases, we will use optimal mass variables designed by semi-supervised, interpretable AI, which the PI has demonstrated to be more precise than the standard transverse mass and similar variables~\cite{Pedro:2023sdp}.
-In the nonresonant case, the search must be performed in the tail of the \ptmiss distribution;
-however, using the same dataset and sharing most event selection criteria with the resonant searches will significantly streamline the effort.
-Even a common background estimation technique will be employed, utilizing the new ``closure loss'' developed by the PI and his colleagues,
-which optimizes the output of a neural network to be able to perform an ``ABCD'' background estimation using three control regions in observed data~\cite{Crossman:2023aps}.
+Currently, no search targets resonant production of \Pbifun, which is more prominent for low mediator mass and small \sbifun, and can occur singly in association with a low-\pt SVJ, or in a pair.
+The PI has demonstrated that a form of semi-supervised, interpretable AI called the event variable network (EVN)
+can learn optimal mass reconstruction functions, superseding the standard transverse mass and similar variables~\cite{Pedro:2023sdp}.
+Figure~\ref{fig:svjmass} (left) shows an example result for \Pbifun pair production; other studies show that the EVN is robust against signal model parameter variations.
+We will extend this concept to a jet variable network (JVN) by incorporating a graph neural network (GNN) to look inside the jets.
+This new approach is inspired by the observations from Refs.~\cite{Strassler:2008fv,CMS:2021dzg} that conventional subjet or jet grooming techniques, when applied to SVJs, reflect the dark hadron mass scale \mdark.
+This is shown in Fig.~\ref{fig:svjmass} (right) for the soft drop algorithm~\cite{Larkoski:2014wba}, which captures the \mdark when there is a single hard fragmentation during the showering process.
+The JVN will extract \mdark more efficiently by implicitly reconstructing the originating dark hadrons.
+By searching in the distribution of the JVN output, a per-jet variable, we will achieve sensitivity to SVJs regardless of the production mode.
 
-The most important element will be the identification or ``tagging'' of SVJs, which is the only way to reduce the large SM backgrounds beyond basic event-level kinematic selections.
+\begin{figure}[htb!]
+\centering
+\twofigeqh{figures/signif_tchanPair.pdf}{figures/EXO-19-020_Figure_003-a.pdf}
+\caption{Left: The distributions of the classical (\mTii) and learned ($V$) mass variables for \Pbifun pair production and QCD background; the middle pane shows the significance, and the bottom pane shows the significance improvement. Right: The softdrop mass distributions for SVJs with different \mdark values and SM backgrounds, normalized to unit area.}
+\label{fig:svjmass}
+\end{figure}
+
+\subsection{SVJ Tagging}\label{subsec:tagging}
+
+The identification or ``tagging'' of SVJs is another critical element, as this is the only way to reduce the large SM backgrounds beyond basic event-level kinematic selections.
 From the original BDT, the team has progressed to more sophisticated approaches:
-a supervised (model-dependent) tagger using particle-level inputs, based on the ParticleNet graph neural network architecture~\cite{Qu:2019gqs};
+a supervised (model-dependent) tagger using particle-level inputs, based on the ParticleNet GNN architecture~\cite{Qu:2019gqs};
 and an unsupervised (model-independent) autoencoder (AE) using jet substructure variables.
 The current performance of these algorithms is shown in Fig.~\ref{fig:svjtaggers}, quantified by integrating the receiver-operator characteristic (ROC) curve to produce the area under the curve (AUC).
 A comparable ParticleNet-based supervised tagger for EMJs has AUC scores of 0.97--0.99, indicating that it is markedly more difficult to distinguish SVJs from QCD jets.
@@ -126,7 +136,7 @@ between samples drawn from the input data and from the latent representation of 
 This approach is also being applied to improve the AXOL1TL anomaly trigger.
 
 For the Run 3 SVJ search, we will develop a new tagger combining the best features of both approaches:
-a graph-based autoencoder (GAE), using the Lund plane representation following Ref.~\cite{Dreyer:2020brq} and trained with the WNAE approach.
+a GNN-based autoencoder (GAE), using the Lund plane representation following Ref.~\cite{Dreyer:2020brq} and trained with the WNAE approach.
 Early attempts indicate the WNGAE could approach the performance level of the supervised tagger, while remaining naturally model-independent.
 While these taggers are initially trained using simulated events,
 the semi-supervised universal domain adaptation technique developed by the PI and his collaborators~\cite{Ciprijanovic:2023hrw}
@@ -158,7 +168,7 @@ However, for intermediate values of those parameters, a dedicated strategy might
 The best strategies for large values of \thooft in combination with the other parameters remain an open question,
 while the generation of physically realistic events at intermediate \thooft has only recently become possible~\cite{Cesarotti:2020uod}.
 
-All of these search strategies might need adjustments for other parameters,
+All of these search strategies might need adjustments for other parameter variations,
 such as the mediator masses and couplings and the various dark sector parameters discussed in Section~\ref{subsec:models}.
 The most feasible way to explore this large parameter space is using a multidimensional scan,
 similar to scans of the phenomenological minimal supersymmetric standard model (pMSSM)~\cite{Djouadi:1998di}
@@ -174,6 +184,9 @@ However, each new element is independent from the others, and reasonable fallbac
 \begin{enumerate}
 \item \textit{Model building}: if a comprehensive set of new benchmarks is not available, the existing models can be used, at the cost of potentially reduced coverage of the model space.
 \item \textit{Anomaly triggers}: if the anomaly trigger performance is not sufficient, the Run 2 trigger strategy can be used, at the cost of more effort to analyze multiple datasets with a less unified strategy.
+\item \textit{Jet variable network}: if the JVN does not perform as expected or is not sufficiently model-independent, we will consider classical techniques such as the softdrop algorithm, at the cost of reduced efficiency. Alternatively, we will fall back to the event-level strategy, still using the optimal mass variables learned by the EVN along with \ptmiss in the nonresonant case, at the cost of additional effort and dependence on production mode.
+Even then, a common background estimation technique will be employed, utilizing the new ``closure loss'' developed by the PI and his colleagues
+to optimize a neural network to perform an ``ABCD'' background estimation using three control regions in observed data~\cite{Crossman:2023aps}.
 \item \textit{SVJ taggers}: if the WNGAE encounters difficulties, the existing tagger architectures can be reused, at the cost of decreased tagging performance or increased model dependence. (The same applies to other AI algorithms, which can be substituted with standard techniques at the cost of increased uncertainty or decreased sensitivity.)
 \end{enumerate}
 At minimum, the SVJ search will benefit from the use of the larger, higher energy Run 3 dataset.

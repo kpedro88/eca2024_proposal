@@ -65,6 +65,13 @@ which is both a useful stepping stone and an important ingredient for the dark Q
 
 \subsection{Refinement}\label{subsec:refine}
 
+\begin{wrapfigure}[20]{L}{0.5\textwidth}
+\centering
+\includegraphics[width=0.49\myfigurewidth]{figures/Regression_20221127_DeepFlavB_preliminary.pdf}
+\caption{The distribution of the \DEEPJET \cPqb-jet tagging discriminator, comparing \GEANTfour (FullSim), FastSim, and refined FastSim.}
+\label{fig:refine}
+\end{wrapfigure}
+
 Conditional distillation is particularly interesting because it offers one path to enhance the existing CMS fast simulation chain (FastSim)~\cite{Sekmen:2016iql}.
 Refining a low-quality simulation to obtain high-quality output was the objective of the PI's previous denoising project, which used a less sophisticated AI architecture~\cite{Banerjee:2022gkg}.
 Diffusion models are much more capable, but so far the ``fully generative'' approach (producing a shower from pure noise) has been pursued;
@@ -81,13 +88,6 @@ the algorithm is now being expanded to cover other jet-related variables and val
 The approach can be understood as a significantly more precise, correlation-preserving alternative to traditional, manually-calculated correction factors.
 Given that the CMS FastSim currently only agrees with \GEANTfour to within ${\sim}10\%$,
 high-level refinement alone can substantially reduce the quality deficits in FastSim samples and the resulting uncertainties.
-
-\begin{wrapfigure}[20]{L}{0.5\textwidth}
-\centering
-\includegraphics[width=0.49\myfigurewidth]{figures/Regression_20221127_DeepFlavB_preliminary.pdf}
-\caption{The distribution of the \DEEPJET \cPqb-jet tagging discriminator, comparing \GEANTfour (FullSim), FastSim, and refined FastSim.}
-\label{fig:refine}
-\end{wrapfigure}
 
 The combination of diffusion and refinement will be even more powerful.
 In the chain FastSim~$\to$~diffusion~$\to$~refinement, each ML algorithm solves a progressively easier problem,

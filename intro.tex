@@ -73,23 +73,22 @@ These include: \emph{semivisible jets} (SVJs), where \met from invisible dark ha
 and \emph{soft unclustered energy patterns} (SUEPs), in which unsuppressed large angle emissions lead to a spherical pattern of dark hadrons~\cite{Knapen:2016hky}.
 These signatures are quite distinct from the expectations from WIMP dark matter and therefore are not probed by WIMP searches.
 
-In this proposal, we will develop and expand the existing program of dark QCD jet searches, initiated and led by the PI.
+In this proposal, we will develop and expand the existing program of dark QCD searches, initiated and led by the PI~\cite{Sirunyan:2018njd,CMS:2021dzg,CMS:2023vpb,CMS:2024emj}.
 We focus on SVJs as the most subtle signature; EMJs and SUEPs present unusual but identifiable signatures in the tracking systems,
 while SVJs can only be distinguished from SM QCD by careful investigation of jet substructure and event-level correlations.
 We will assemble a comprehensive SVJ search strategy from several elements.
-Continuing from the recent Snowmass effort~\cite{Albouy:2022cin}, we will continue model building to obtain a broader set of viable parameter combinations in complete hidden valley theories,
-in order to understand the ranges of possible observables, catalog any degeneracies, and rule out any unphysical models.
+Expanding on the recent Snowmass effort~\cite{Albouy:2022cin}, we will continue model building to obtain a broader set of complete hidden valley theories,
+in order to understand the ranges of possible observables, catalog any degeneracies, and rule out any unphysical parameter combinations.
 The acceptance of conventional triggers for dark QCD models depends strongly on the production mode and associated final-state kinematics;
 AI-based anomaly detection triggers promise significant increases in recorded dark QCD events.
-Finally, the existing strategies for resonant and non-resonant searches will be unified, with the latest AI techniques employed,
-which will allow us to produce the most impactful result more efficiently.
-This program will be conducted using the LHC Run 3 dataset, which is larger and higher energy than the Run 2 dataset, offering further gains.
+Finally, we will develop a unified strategy based on reconstructing dark hadrons directly, relying on the latest AI techniques to identify SVJs.
+This search, with sensitivity to all production modes, will be conducted using the LHC Run 3 dataset, taking advantage of the increases in size and energy compared to Run 2.
 
 After the completion of the unified SVJ search, we will combine the results with the ongoing EMJ and SUEP searches.
 This combination will be reinterpreted to cover new models with mixtures of all three signatures: emerging SVJs, semivisible or emerging SUEPs, and finally semivisible emerging SUEPs.
 This will constitute the first multidimensional scan over the entire space of dark shower models,
 and it will reveal uncovered regions of parameter space to motivate the next steps for this search program into the HL-LHC era.
-Conducting this scan before the HL-LHC starts will ensure that we can optimize the trigger to maximize the acceptance for the unconstrained models.
+Conducting this scan before the HL-LHC starts will ensure that we can optimize the Run 4 trigger to maximize the acceptance for the unconstrained models.
 Section~\ref{sec:darkqcd} provides more details regarding the work and new developments that will make this program a success.
 
 \subsubsection{Team and Collaborators}\label{subsec:dmteam}
@@ -154,15 +153,17 @@ The PI formed and leads the CMS Machine Learning for Simulation (ML4Sim) group, 
 and the Theoretical Calculations and Simulation topical group for the Snowmass Computational Frontier~\cite{Boyle:2022cvo,Elvira:2022wyn}.
 Through these roles, he has directed the field toward an emphasis on practical usability of generative AI.
 
-The PI was among the first to explore ``denoising'' techniques~\cite{Banerjee:2022gkg}, which learn a regression from a low-quality or ``noisy'' simulation to a high-quality or ``denoised'' final result~\cite{Pixar}.
-More recently, diffusion models have come to dominate generative tasks in industry, such as the popular text-to-image generators Stable Diffusion, DALL${\cdot}$E, and Midjourney.
-Diffusion models can be seen as the ultimate denoising method: they learn to smear existing simulations by successively adding small amounts of randomness,
+%The PI was among the first to explore ``denoising'' techniques~\cite{Banerjee:2022gkg}, which learn a regression from a low-quality or ``noisy'' simulation to a high-quality or ``denoised'' final result~\cite{Pixar}.
+Recently, diffusion models have come to dominate generative tasks in industry, such as the popular text-to-image generators Stable Diffusion, DALL${\cdot}$E, and Midjourney.
+These models learn to smear existing simulations by successively adding small amounts of randomness,
 in order to be able to reverse the process, iteratively unsmearing random inputs to produce realistic output.
-The PI has demonstrated that diffusion models can achieve the necessary quality, based on public datasets~\cite{Amram:2023onf}.
+The PI has demonstrated that diffusion models can produce simulations of the necessary quality, based on public datasets~\cite{Amram:2023onf}.
 We will now apply this approach to simulate particle showers in the CMS calorimeters, which are the major contributor to increasing per-event simulation time at the HL-LHC~\cite{Pedro:2020kbk}.
-Both ``fully generative'' (producing showers from completely random input) and ``hybrid'' (producing showers from approximately correct input) will be explored.
+In addition to the default ``fully generative'' approach, (producing showers from completely random input),
+we will also explore a ``hybrid'' approach (producing showers from approximately correct input).
+The latter is inspired by the PI's previous efforts on ``denoising'' techniques~\cite{Banerjee:2022gkg}, which learn a regression from a low-quality or ``noisy'' simulation to a high-quality or ``denoised'' final result~\cite{Pixar}; diffusion models can be seen as the ultimate version of denoising.
 We target percent-level agreement with \GEANTfour and more than a factor of 10 improvement in throughput;
-the former is achievable given existing results, while further increasing the speed of diffusion is an important goal of the project.
+both are achievable given existing results, with further increases to the speed of diffusion expected as part of the project.
 Any remaining discrepancies between the full and AI-based simulations will be handled by high-level refinement,
 another regression-based technique developed by the PI~\cite{Bein:2023ylt} that is already being commissioned by CMS for Run 3.
 The readiness of the entire AI-based CMS simulation chain before the HL-LHC startup will facilitate the dark QCD scan, the Run 3 capstone, as well as all Run 4 activities.
@@ -201,7 +202,7 @@ and others from CERN, Massachusetts Institute of Technology, Purdue University, 
 The Fast ML Lab has strong ties to industry, including Nvidia and Graphcore, and the PI in particular has extensive experience working with industry engineers.
 This diverse group, which the PI can most effectively access as a fellow lab scientist,
 provides unparalleled knowledge and experience to support the proposal's technical and ML-related goals.
-The PI's position and connections at Fermilab, therefore, act as multipliers for the DOE's early career investment, strengthening the results and impact of the proposal.
+The PI's position and connections at Fermilab, therefore, are multipliers for the DOE's early career investment, resulting in a stronger, more impactful proposal.
 
 The PI and the new RA will be assisted in this project by AI associates (post-baccalaureate researchers with AI-relevant degrees and experience), supported by the early career funds.
 We expect to employ two AI associates, one during budget years (BYs) 2--3 to help develop the diffusion algorithm is being developed, and a second during BYs 4--5, to implement inference as a service for simulation and utilize HPCs.
