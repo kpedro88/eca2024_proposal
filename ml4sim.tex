@@ -65,7 +65,7 @@ which is both a useful stepping stone and an important ingredient for the dark Q
 
 \subsection{Refinement}\label{subsec:refine}
 
-\begin{wrapfigure}[20]{L}{0.5\textwidth}
+\begin{wrapfigure}[21]{L}{0.5\textwidth}
 \centering
 \includegraphics[width=0.49\myfigurewidth]{figures/Regression_20221127_DeepFlavB_preliminary.pdf}
 \caption{The distribution of the \DEEPJET \cPqb-jet tagging discriminator, comparing \GEANTfour (FullSim), FastSim, and refined FastSim.}
@@ -108,7 +108,7 @@ As one of the only people to have implemented an alternative simulation engine i
 and the lead developer of the SONIC approach for inference as a service,
 the PI has nearly unparalleled expertise in this area.
 
-\begin{wrapfigure}[16]{r}{0.5\textwidth}
+\begin{wrapfigure}[17]{r}{0.5\textwidth}
 \centering
 \includegraphics[width=0.49\myfigurewidth]{figures/MLG-23-001_Figure_009.pdf}
 \caption{The event processing throughput for CPU-based workflows: without GPUs, with local GPUs, and with remote GPUs.}
@@ -132,7 +132,7 @@ The FastSim-based diffusion model will be implemented within the CMS FastSim app
 The technologies and innovations in this part of the proposal have mostly been proven to work in other contexts, as shown above.
 Viable alternatives exist to mitigate the risks from the new elements:
 \begin{enumerate}
-\item \textit{Faster diffusion}: if the various approaches to speed up the fully generative diffusion model do not succeed, this will reduce the amount of simulation that can be produced, thought it is still expected to exceed \GEANTfour when running in batches on GPU. As a fallback, the existing FastSim can be used in combination with high-level refinement to achieve some reduction in uncertainty.
+\item \textit{Faster diffusion}: if the various approaches to speed up the fully generative diffusion model do not succeed, this will reduce the amount of simulation that can be produced, though it is still expected to exceed \GEANTfour when running in batches on GPU. As a fallback, the existing FastSim can be used in combination with high-level refinement to achieve some reduction in uncertainty.
 \item \textit{FastSim-based diffusion}: if the combination of the diffusion model with the existing FastSim is not viable, the fully generative diffusion model can be used, or high-level refinement can be used alone (see above).
 \item \textit{SONIC implementation}: if unforeseen complications are encountered in the use of inference as a service, directly-connected GPUs can be employed, at the cost of limiting the computing sites where simulation can be run effectively.
 \end{enumerate}
