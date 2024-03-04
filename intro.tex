@@ -162,7 +162,7 @@ We will now apply this approach to simulate particle showers in the CMS calorime
 In addition to the default ``fully generative'' approach, (producing showers from completely random input),
 we will also explore a ``hybrid'' approach (producing showers from approximately correct input).
 The latter is inspired by the PI's previous efforts on ``denoising'' techniques~\cite{Banerjee:2022gkg}, which learn a regression from a low-quality or ``noisy'' simulation to a high-quality or ``denoised'' final result~\cite{Pixar}; diffusion models can be seen as the ultimate version of denoising.
-We target percent-level agreement with \GEANTfour and more than a factor of 10 improvement in throughput;
+We target percent-level agreement with \GEANTfour and at least a factor of 100 improvement in throughput;
 both are achievable given existing results, with further increases to the speed of diffusion expected as part of the project.
 Any remaining discrepancies between the full and AI-based simulations will be handled by high-level refinement,
 another regression-based technique developed by the PI~\cite{Bein:2023ylt} that is already being commissioned by CMS for Run 3.

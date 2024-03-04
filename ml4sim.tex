@@ -84,7 +84,7 @@ The PI and his team have also developed a complementary high-level refinement, d
 This algorithm includes the first use of the modified differential method of multipliers~\cite{Platt:1987} in HEP,
 which automatically balances a tradeoff between ensemble and per-event comparisons when training the network.
 With promising results on \cPqb-jet tagging variables, shown in Fig.~\ref{fig:refine},
-the algorithm is now being expanded to cover other jet-related variables and validated for use in Run 3.
+the algorithm is now being expanded to other jet-related variables and validated for use in Run 3.
 The approach can be understood as a significantly more precise, correlation-preserving alternative to traditional, manually-calculated correction factors.
 Given that the CMS FastSim currently only agrees with \GEANTfour to within ${\sim}10\%$,
 high-level refinement alone can substantially reduce the quality deficits in FastSim samples and the resulting uncertainties.
@@ -94,13 +94,13 @@ In the chain FastSim~$\to$~diffusion~$\to$~refinement, each ML algorithm solves 
 because the difference with respect to the previous step is smaller.
 Therefore, it can learn the solution more precisely from a given dataset size,
 as well as incorporating physics at different levels (individual detector hits and reconstructed kinematic variables).
-Essentially, refinement will address any residual disagreements between FastSim-based \diffu and \GEANTfour,
+Refinement will address any residual disagreements between FastSim-based \diffu and \GEANTfour,
 resulting in a more accurate final product, much like next-to-leading order matrix element calculations increase in accuracy by incorporating higher-order effects.
 
 \subsection{Inference as a Service}\label{subsec:iaas}
 
 As noted in Section~\ref{subsec:diffu}, the maximum speedup for AI-based simulation is achieved by performing inference on GPU
-and generating showers for ${\sim}100$ particles simultaneously.
+and generating showers for at least 100 particles simultaneously.
 In order to reliably fill the GPU register, particles from multiple events must be processed together.
 In addition, most CPUs in the Worldwide LHC Computing Grid currently are not directly connected to GPUs.
 These considerations necessitate a flexible implementation of AI-based simulation algorithms in the experiment software framework.
@@ -148,7 +148,7 @@ While the collider itself is several decades away, the report highlights that re
 Simulation is a crucial component of the design process for both the detectors and the collider,
 and the machine-detector interface (MDI) is particularly important for the muon collider.
 The MDI must incorporate mitigations for the beam-induced background (BIB) caused by muon decays in flight as the beam circulates.
-At $\sqrt{s_{\Pgm\Pgm}} = 10\TeV$, there are ${\sim}10^5$ muon decays per meter, leading to ${\sim}10^8$ photons and neutrons per bunch crossing~\cite{Black:2022cth}.
+At $\sqrt{\smash[b]{s_{\Pgm\Pgm}}} = 10\TeV$, there are ${\sim}10^5$ muon decays per meter, leading to ${\sim}10^8$ photons and neutrons per bunch crossing~\cite{Black:2022cth}.
 
 Currently, it takes 24 hours to simulate just one BIB event with \GEANTfour.
 AI-based BIB simulation, therefore, would be highly impactful for muon collider, detector, and MDI design.
