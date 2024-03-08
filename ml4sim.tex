@@ -63,6 +63,11 @@ Further optimizations of the \diffu model will be needed to handle the high dime
 First, we will adapt the model to the existing, simpler CMS calorimeters,
 which is both a useful stepping stone and an important ingredient for the dark QCD scan (Section~\ref{subsec:darkscan}).
 
+\textit{Risk mitigation}: if the various approaches to speed up the fully generative diffusion model do not succeed,
+this will reduce the amount of simulation that can be produced,
+though we still expect to exceed \GEANTfour when running in batches on GPU.
+As a fallback, the existing FastSim can be used in combination with high-level refinement (Section~\ref{subsec:refine}) to achieve higher accuracy.
+
 \subsection{Refinement}\label{subsec:refine}
 
 \begin{wrapfigure}[21]{L}{0.5\textwidth}
@@ -97,7 +102,17 @@ as well as incorporating physics at different levels (individual detector hits a
 Refinement will address any residual disagreements between FastSim-based \diffu and \GEANTfour,
 resulting in a more accurate final product, much like next-to-leading order matrix element calculations increase in accuracy by incorporating higher-order effects.
 
+\textit{Risk mitigation}: if the combination of the diffusion model with the existing FastSim is not viable,
+we can use the fully generative diffusion model or high-level refinement alone.
+
 \subsection{Inference as a Service}\label{subsec:iaas}
+
+\begin{wrapfigure}[17]{r}{0.5\textwidth}
+\centering
+\includegraphics[width=0.49\myfigurewidth]{figures/MLG-23-001_Figure_009.pdf}
+\caption{The event processing throughput for CPU-based workflows: without GPUs, with local GPUs, and with remote GPUs.}
+\label{fig:sonic}
+\end{wrapfigure}
 
 As noted in Section~\ref{subsec:diffu}, the maximum speedup for AI-based simulation is achieved by performing inference on GPU
 and generating showers for at least 100 particles simultaneously.
@@ -108,13 +123,6 @@ As one of the only people to have implemented an alternative simulation engine i
 and the lead developer of the SONIC approach for inference as a service,
 the PI has nearly unparalleled expertise in this area.
 
-\begin{wrapfigure}[17]{r}{0.5\textwidth}
-\centering
-\includegraphics[width=0.49\myfigurewidth]{figures/MLG-23-001_Figure_009.pdf}
-\caption{The event processing throughput for CPU-based workflows: without GPUs, with local GPUs, and with remote GPUs.}
-\label{fig:sonic}
-\end{wrapfigure}
-
 SONIC enables access to heterogeneous coprocessor resources via a client-server approach
 and has demonstrated inference acceleration by multiple orders of magnitude on GPUs, FPGAs, and intelligence processing units (IPUs).
 Figure~\ref{fig:sonic} shows the most recent results for SONIC in CMS~\cite{CMS:2024twn}:
@@ -124,18 +132,16 @@ SONIC minimizes programming and maintenance burdens while maximizing portability
 A single coprocessor, located anywhere, can serve tens or even hundreds of CPU processes.
 The underlying framework takes advantage of open-source tools, including the Nvidia Triton inference server~\cite{nvidia} and advances in machine learning packages.
 
+\textit{Risk mitigation}: if unforeseen complications are encountered in the use of inference as a service,
+directly-connected GPUs can be employed, at the cost of limiting the computing sites where simulation can be run effectively.
+
 The final product of this work is an AI-augmented simulation engine
 that carries out rule-based algorithms on local CPUs and AI inference on remote GPUs via SONIC.
 The fully generative diffusion model will be implemented within the \GEANTfour interface, in order to validate its performance against the highest quality simulation.
 (A complete validation requires comparison of reconstruction-level quantities that can only be computed using the entire CMSSW processing chain.)
 The FastSim-based diffusion model will be implemented within the CMS FastSim application, in combination with high-level refinement, to deliver the fastest high-quality simulation.
 The technologies and innovations in this part of the proposal have mostly been proven to work in other contexts, as shown above.
-Viable alternatives exist to mitigate the risks from the new elements:
-\begin{enumerate}
-\item \textit{Faster diffusion}: if the various approaches to speed up the fully generative diffusion model do not succeed, this will reduce the amount of simulation that can be produced, though it is still expected to exceed \GEANTfour when running in batches on GPU. As a fallback, the existing FastSim can be used in combination with high-level refinement to achieve some reduction in uncertainty.
-\item \textit{FastSim-based diffusion}: if the combination of the diffusion model with the existing FastSim is not viable, the fully generative diffusion model can be used, or high-level refinement can be used alone (see above).
-\item \textit{SONIC implementation}: if unforeseen complications are encountered in the use of inference as a service, directly-connected GPUs can be employed, at the cost of limiting the computing sites where simulation can be run effectively.
-\end{enumerate}
+Viable alternatives exist to mitigate the risks from the new elements.
 The AI-augmented simulation engine will be ready by the end of Run 3 to enable the comprehensive dark QCD scan (Section~\ref{subsec:darkscan})
 and to be employed for HL-LHC simulations for Run 4 and beyond.
 
