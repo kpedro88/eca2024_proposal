@@ -20,7 +20,7 @@ To generate new images, this process is reversed, starting from pure noise to pr
 \end{figure}
 
 The PI and his team developed the \diffu algorithm for the \challenge,
-a recent community effort to compare different AI approaches to the simulation of particle showers in calorimeters, using common datasets and metrics.
+a recent community effort to compare different AI approaches to the simulation of particle showers in calorimeters, using common datasets and metrics~\cite{CaloChallenge}.
 The datasets include sampling calorimeters with varying materials and granularities and different particles including photons, pions, and electrons.
 \diffu uses a convolutional U-net architecture~\cite{Ronneberger:2015}, along with several innovations to handle the non-rectangular and sometimes irregular geometry of calorimeters.
 The convolution operations are \textit{cylindrical}, accounting for periodicity in the azimuthal angle $\phi$.
