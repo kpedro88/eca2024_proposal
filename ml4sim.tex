@@ -70,7 +70,7 @@ As a fallback, the existing FastSim can be used in combination with high-level r
 
 \subsection{Refinement}\label{subsec:refine}
 
-\begin{wrapfigure}[21]{L}{0.5\textwidth}
+\begin{wrapfigure}[22]{L}{0.5\textwidth}
 \centering
 \includegraphics[width=0.49\myfigurewidth]{figures/Regression_20221127_DeepFlavB_preliminary.pdf}
 \caption{The distribution of the \DEEPJET \cPqb-jet tagging discriminator, comparing \GEANTfour (FullSim), FastSim, and refined FastSim.}
@@ -107,13 +107,6 @@ we can use the fully generative diffusion model or high-level refinement alone.
 
 \subsection{Inference as a Service}\label{subsec:iaas}
 
-\begin{wrapfigure}[17]{r}{0.5\textwidth}
-\centering
-\includegraphics[width=0.49\myfigurewidth]{figures/MLG-23-001_Figure_009.pdf}
-\caption{The event processing throughput for CPU-based workflows: without GPUs, with local GPUs, and with remote GPUs.}
-\label{fig:sonic}
-\end{wrapfigure}
-
 As noted in Section~\ref{subsec:diffu}, the maximum speedup for AI-based simulation is achieved by performing inference on GPU
 and generating showers for at least 100 particles simultaneously.
 In order to reliably fill the GPU register, particles from multiple events must be processed together.
@@ -131,6 +124,13 @@ and the use of asynchronous, non-blocking requests~\cite{Bocci:2020olh} further 
 SONIC minimizes programming and maintenance burdens while maximizing portability, efficiency, and accessibility.
 A single coprocessor, located anywhere, can serve tens or even hundreds of CPU processes.
 The underlying framework takes advantage of open-source tools, including the Nvidia Triton inference server~\cite{nvidia} and advances in machine learning packages.
+
+\begin{wrapfigure}[17]{r}{0.5\textwidth}
+\centering
+\includegraphics[width=0.49\myfigurewidth]{figures/MLG-23-001_Figure_009.pdf}
+\caption{The event processing throughput for CPU-based workflows: without GPUs, with local GPUs, and with remote GPUs.}
+\label{fig:sonic}
+\end{wrapfigure}
 
 \textit{Risk mitigation}: if unforeseen complications are encountered in the use of inference as a service,
 directly-connected GPUs can be employed, at the cost of limiting the computing sites where simulation can be run effectively.

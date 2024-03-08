@@ -61,16 +61,25 @@ which will facilitate sensitivity to more models and smaller couplings.
 
 \subsection{Strategy}\label{subsec:strategy}
 
-We will further unify the offline analysis strategy to cover all production modes.
 Currently, no search targets resonant production of \Pbifun, which is more prominent for low mediator mass and small \sbifun, and can occur singly in association with a low-\pt SVJ, or in a pair.
 The PI has demonstrated that a form of semi-supervised, interpretable AI called the event variable network (EVN)
-can learn optimal mass reconstruction functions, superseding the standard transverse mass and similar variables~\cite{Pedro:2023sdp}.
-Figure~\ref{fig:svjmass} (left) shows an example result for \Pbifun pair production; other studies show that the EVN is robust against signal model parameter variations.
-We will extend this concept to a jet variable network (JVN) by incorporating a graph neural network (GNN) to look inside the jets.
+can learn optimal mass variables, superseding the standard transverse mass and similar variables~\cite{Pedro:2023sdp}.
+The EVN uses an information bottleneck to maximize the mutual information between the learned variable and the parameter of interest,
+resulting in a generalized function that applies to model parameter variations and even other processes not included in training, rather than a simple regression.
+Figure~\ref{fig:svjmass} (left) shows an example result for \Pbifun pair production, including the performance on SM QCD multijet events;
+other studies show that the EVN is robust against signal model parameter variations.
+While this technique improves sensitivity compared to existing strategies, different mass variables are still needed for different production modes, with \ptmiss used in the nonresonant case.
+
+We propose to go further by unifying the offline analysis strategy to cover all production modes.
+We will extend this concept to a jet variable network (JVN) by incorporating a graph neural network (GNN) to analyze the jet constituents.
 This new approach is inspired by the observations from Refs.~\cite{Strassler:2008fv,CMS:2021dzg} that conventional jet grooming or subjet techniques, when applied to SVJs, reflect the dark hadron mass scale \mdark.
-This is shown in Fig.~\ref{fig:svjmass} (right) for the soft drop algorithm~\cite{Larkoski:2014wba}, which captures the \mdark when there is a single hard fragmentation during the showering process.
+This is distinct from the behavior for jets arising from decays of heavy boosted objects such as top quarks or weak bosons,
+because the hadronization process shares energy between color-connected objects and therefore does not preserve the mass of the initiating parton.
+The result from the soft drop algorithm~\cite{Larkoski:2014wba} is shown in Fig.~\ref{fig:svjmass} (right); this algorithm captures \mdark when there is a single hard fragmentation during the showering process.
 The JVN will extract \mdark more efficiently by implicitly reconstructing the originating dark hadrons.
 By searching in the distribution of the JVN output, a per-jet variable, we will achieve sensitivity to SVJs regardless of the production mode.
+To estimate the SM background, we will employ the new ``closure loss'' developed by the PI and his colleagues
+to optimize a neural network to perform an ``ABCD'' background estimation using three control regions in observed data~\cite{Crossman:2023aps}.
 
 \begin{figure}[htb!]
 \centering
@@ -80,10 +89,8 @@ By searching in the distribution of the JVN output, a per-jet variable, we will 
 \end{figure}
 
 \textit{Risk mitigation}: if the JVN does not perform as expected or is not sufficiently model-independent, we will consider classical techniques such as the softdrop algorithm, at the cost of reduced efficiency.
-Alternatively, we will fall back to the event-level strategy,
-still using the optimal mass variables learned by the EVN along with \ptmiss in the nonresonant case, at the cost of additional effort and dependence on production mode.
-Even then, a common background estimation technique will be employed, utilizing the new ``closure loss'' developed by the PI and his colleagues
-to optimize a neural network to perform an ``ABCD'' background estimation using three control regions in observed data~\cite{Crossman:2023aps}.
+Alternatively, we will fall back to the event-level strategy, still using the optimal mass variables learned by the EVN, at the cost of additional effort and dependence on production mode.
+Even then, the closure-loss background estimation technique will be employed for all production modes.
 
 \subsection{SVJ Tagging}\label{subsec:tagging}
 
