@@ -1,4 +1,6 @@
-\section{Introduction}\label{sec:intro}
+\section{Overview}\label{sec:intro}
+
+\subsection{Program and Significance}\label{subsec:program}
 
 This proposal addresses two important, outstanding topics in particle physics at the energy frontier:
 the nature of dark matter (DM) and the computational challenge of detector simulation.
@@ -11,198 +13,64 @@ including the upcoming high-luminosity upgrade (HL-LHC).
 In particular, this proposal explores the hypothesis that dark matter, much like ordinary matter,
 consists of composite particles bound together by a strong force, analogous to standard model (SM) quantum chromodynamics (QCD).
 This is predicted by ``hidden valley'' models~\cite{Strassler:2006im}, which postulate a dark sector with a new, confining force, called ``dark QCD''.
-This composite, strongly coupled dark matter is expected to have highly suppressed interactions with ordinary matter
-and therefore would evade direct detection experiments~\cite{Cohen:2017pzm}.
-The abundance of strongly coupled dark matter arises from an asymmetry mechanism, so it would similarly evade annihilation-based experiments~\cite{Petraki:2013wwa}.
+\textbf{Composite, strongly coupled DM can only be accessed at colliders.}
+Its interactions with ordinary matter are expected to be highly suppressed,
+and therefore it would evade direct detection experiments~\cite{Cohen:2017pzm}.
+Its abundance arises from an asymmetry mechanism, so it would similarly evade annihilation-based experiments~\cite{Petraki:2013wwa}.
 Nevertheless, such models can satisfy observed relic density constraints~\cite{Beauchesne:2018myj,Beauchesne:2019ato}.
-Evidence of dark QCD may be found through several novel phenomenological signatures at colliders,
-illustrating the complementarity between the different prongs of the high energy physics (HEP) program.
-Because these models include numerous parameters with unknown values and theoretical uncertainties, a broad search strategy will be most effective.
-This will be accomplished through unsupervised artificial intelligence (AI), which learns to distinguish known standard model (SM) processes from anomalies
-without relying on a specific model of new physics.
-Unsupervised AI will be employed to select events at the trigger level and to identify new phenomena in the selected data.
+These models include numerous parameters with unknown values and theoretical uncertainties.
+Therefore, we will increase model independence in every step of the search compared to previous efforts,
+in particular by employing unsupervised artificial intelligence (AI).
+\textbf{Now is the most opportune time to conduct this search}:
+LHC Run 3 will provide more and higher-energy collisions with new triggers,
+and the results will inform preparations for the HL-LHC.
 
 Accurate detector simulation is one of the cornerstones of HEP, crucial to design searches for new physics.
 Because of the wide range of possible signal models,
 as well as the potentially large backgrounds from high-cross section processes such as SM QCD multijet production,
-this program will require substantial quantities of simulated events.
+the dark QCD program will require substantial quantities of simulated events.
 The current approach, modeling each simulated particle's interactions with the detector material, is too computationally intensive to deliver enough events.
-In this way, the search for composite dark matter presages a challenge soon to be faced by the entire field at the HL-LHC.
-With data rates increasing by a factor of 10 and event complexity growing similarly, no analysis will have a sufficient amount of simulation.
-New techniques in generative AI are well suited to address this challenge, dramatically accelerating the computation of detector simulation while retaining quality.
+In this way, the search for composite DM presages a challenge soon to be faced by the entire field at the HL-LHC.
+With data rates increasing by a factor of 10 along with growth in event complexity, no analysis will have a sufficient amount of simulation.
+\textbf{Generative AI is well suited to address this challenge, dramatically accelerating the computation of detector simulation while retaining quality.}
 AI-based simulation can naturally take advantage of GPUs and other coprocessors, such as those at high performance computing (HPC) centers.
-Using inference as a service, these new techniques will be implemented with minimal disruption to the existing software and maximal flexibility to use coprocessors efficiently.
+Using inference as a service, these new techniques will be integrated seamlessly into the existing software with maximal flexibility to use coprocessors efficiently.
 
 The PI is a recognized leader in strongly coupled dark matter and both unsupervised and generative AI.
-His leadership is supplemented by broad expertise in collider searches for new physics and scientific computing.
+His leadership is supplemented by broad expertise in collider searches and scientific computing.
 The program proposed here will advance multiple elements of the DOE HEP mission: understanding dark matter and improving capabilities in detector simulation.
-The benefits will extend to the entire field and even into the future, beyond the HL-LHC, providing physics motivation and critical techniques for future colliders.
-Success will be achieved by leveraging the PI's established collaborations based at Fermilab, which provides unparalleled and highly relevant resources and knowledge.
+The techniques developed to execute this program will be broadly useful in many fields:
+model-independent searches using unsupervised AI and fast, accurate simulation using generative AI are of interest
+not only in collider physics, but also in neutrino physics and astrophysics, among others.
+These benefits will even extend to future colliders, beyond the HL-LHC.
 
-\subsection{Dark Matter}\label{subsec:dm}
+\subsection{Team}\label{subsec:team}
 
-\subsubsection{Background}\label{subsec:dmbkg}
+With the early career funding, the PI will assemble a team with the necessary expertise to carry out this program.
+The PI and a new postdoctoral research associate (RA) will co-lead both the dark QCD search and the development of AI-based detector simulation.
+Fermilab provides a unique AI associate (AIA) program, which hires post-baccalaureate researchers with expertise in AI and computing.
+Two AI associates (AIA\#1 and AIA\#2) will join the team at different stages of the project to deliver the AI algorithms and the computing necessary to run AI-based simulation at scale, respectively.
 
-Many astronomical observations, from various independent and complementary sources,
-indicate that dark matter exists, comprises the majority of matter in the universe, and does not consist of any SM particles.
-These sources include:
-galaxy rotation curves, most of which do not match the expectation from visible matter~\cite{Rubin:1980zd,Persic:1995ru} except for a few~\cite{vanDokkum:2018vup,PinaMancera:2021wpc}, indicating that DM is unevenly distributed;
-strong gravitational lensing from galaxy cluster collisions~\cite{Clowe:2006eq} and weak gravitational lensing from large-scale structures~\cite{Chang:2017kmv};
-the cosmic microwave background power spectrum~\cite{Planck:2018vyg} and the matter power spectrum of the universe~\cite{Dodelson:2011qv,Planck:2018nkj};
-and discrepancies in light element abundances from big bang nucleosynthesis~\cite{Pospelov:2010hj}.
+The PI will leverage his established collaborations at Fermilab to provide unparalleled and highly relevant resources and knowledge to the team.
+Fermilab theorists work on dark sector modeling and phenomenology (E. Bernreuther, G. Krnjaic).
+Fermilab hosts one of the largest detector simulation groups (P. Canal, D. Elvira, S. Y. Jun, G. Lima)
+and the CMS experiment software framework developers (C. Jones, D. Dagenhart, M. Kortelainen, K. Knoepfel, E. Sexton-Kennedy), with whom the PI works closely.
+Fermilab also has a diverse but tight-knit group of AI experts working on colliders (O. Amram, Y. Feng, L. Gray, B. Hawks, C. Herwig, T. Klijnsma, J. Ngadiuba, N. Tran),
+neutrinos (G. Perdue, M. Wang, T. Yang), astrophysics (A. Ciprijanovic, R. Nevin, B. Nord, M. Voetberg), and computing (M. Acosta Flechas, B. Holzman).
+The PI's position and connections at Fermilab, therefore, are multipliers for the DOE's early career investment, strengthening the proposal.
 
-Weakly interacting massive particles (WIMPs) have been explored for decades~\cite{Jungman:1995df}, with no direct evidence yet obtained for their existence.
-Numerous searches have targeted their collider signature, an excess of events with large missing transverse momentum (\ptvecmiss, with magnitude \met),
-including several of the most impactful led by the PI, motivated by hadronic supersymmetry~\cite{Khachatryan:2016kdk,Sirunyan:2017cwe,Sirunyan:2019hzr,Sirunyan:2019ctn,CMS:2023xlp}.
-Alternative approaches, including the direct detection of interactions between dark matter and nuclei of visible matter
-and indirect detection of dark matter annihilation or decay, similarly have not detected WIMP signatures.
+\subsection{Collaborators}\label{subsec:collab}
 
-Dark matter has been estimated from astrophysical measurements to have an abundance similar,
-on the cosmological scale, to visible matter (roughly five times greater~\cite{Ade:2015xua}).
-This correspondence implies that dark matter may consist of composite particles, much like the baryons that make up the majority of visible matter~\cite{Bai:2013xga,Bodas:2024idn}.
-Unlike WIMPs, exploration of composite dark matter models has only just started, and many such models have not been ruled out.
-
-\subsubsection{Objectives}\label{subsec:dmobj}
-
-The hidden valley models that produce strongly coupled dark matter include a new $SU(\Ncdark)$ strong force that binds dark quarks (\Pqdark) into dark hadrons, creating dark showers of new particles.
-Depending on the details of the particles and forces in the hidden sector,
-as well as the mediator particles that facilitate weak interactions between the SM and the hidden sector,
-these dark showers can produce a variety of experimental signatures.
-These include: \emph{semivisible jets} (SVJs), where \met from invisible dark hadrons is aligned with visible SM hadrons~\cite{Cohen:2015toa};
-\emph{emerging jets} (EMJs), with multiple displaced vertices from decays of long-lived dark hadrons~\cite{Schwaller:2015gea};
-and \emph{soft unclustered energy patterns} (SUEPs), in which unsuppressed large angle emissions lead to a spherical pattern of dark hadrons~\cite{Knapen:2016hky}.
-These signatures are quite distinct from the expectations from WIMP dark matter and therefore are not probed by WIMP searches.
-
-In this proposal, we will develop and expand the existing program of dark QCD searches, initiated and led by the PI~\cite{Sirunyan:2018njd,CMS:2021dzg,CMS:2024nca,CMS:2024gxp}.
-We focus on SVJs as the most subtle signature; EMJs and SUEPs present unusual but identifiable signatures in the tracking systems,
-while SVJs can only be distinguished from SM QCD by careful investigation of jet substructure and event-level correlations.
-We will assemble a comprehensive SVJ search strategy from several elements.
-Expanding on the recent Snowmass effort~\cite{Albouy:2022cin}, we will continue model building to obtain a broader set of complete hidden valley theories,
-in order to understand the ranges of possible observables, catalog any degeneracies, and rule out any unphysical parameter combinations.
-The acceptance of conventional triggers for dark QCD models depends strongly on the production mode and associated final-state kinematics;
-AI-based anomaly detection triggers promise significant increases in recorded dark QCD events.
-Finally, we will develop a unified strategy based on reconstructing dark hadrons directly, relying on the latest AI techniques to identify SVJs.
-This search, with sensitivity to all production modes, will be conducted using the LHC Run 3 dataset, taking advantage of the increases in size and energy compared to Run 2.
-
-After the completion of the unified SVJ search, we will combine the results with the ongoing EMJ and SUEP searches.
-This combination will be reinterpreted to cover new models with mixtures of all three signatures: emerging SVJs, semivisible or emerging SUEPs, and finally semivisible emerging SUEPs.
-This will constitute the first multidimensional scan over the entire space of dark shower models,
-and it will reveal uncovered regions of parameter space to motivate the next steps for this search program into the HL-LHC era.
-Conducting this scan before the HL-LHC starts will ensure that we can optimize the Run 4 trigger to maximize the acceptance for the unconstrained models.
-Section~\ref{sec:darkqcd} provides more details regarding the work and new developments that will make this program a success.
-
-\subsubsection{Team and Collaborators}\label{subsec:dmteam}
-
-The PI started and leads the CMS Dark QCD team, which includes several Fermilab RAs (T. Klijnsma, C. Madrid, E. Smith) and scientists (D. Elvira, B. Jayatilaka, S. Mrenna).
+The PI started and leads the CMS Dark QCD team, which includes several Fermilab RAs and scientists.
 There are also numerous university personnel via the LHC Physics Center (LPC)~\cite{LPC}, hosted at Fermilab, from various institutes:
 Boston University, Massachusetts Institute of Technology, University of Colorado, University of Maryland, University of Puerto Rico, University of Rochester, and University of Tennessee.
 The team additionally collaborates with international partners, associated with CERN, from ETH Zurich, Karlsruhe Institute of Technology, and University of Zurich.
-In particular, we benefit from the contributions of top-tier graduate students and RAs, including several LPC Graduate Scholars, LPC Distinguished Researchers, and a Lederman Fellow.
-We also stay in close contact with theorists and phenomenologists,
-such as the authors of Refs.~\cite{Strassler:2006im,Cohen:2015toa,Schwaller:2015gea,Knapen:2016hky,Albouy:2022cin}, who develop and explore strongly coupled hidden sector models,
-as well as Fermilab theorists who work on related areas (E. Bernreuther, G. Krnjaic).
+In particular, we benefit from the contributions of top-tier graduate students and RAs, including several LPC Graduate Scholars, LPC Distinguished Researchers, and a Fermilab Lederman Fellow.
 
-The early career support will enable a dedicated RA to lead the new, unified Run 3 SVJ search with collaborators from this team.
-This will supplement the partial effort from the RAs mentioned above and the other collaborators, many of whom focus on searches for other dark QCD phenomena (EMJs and SUEPs).
-The AI-specific components of the proposal will also benefit from Fermilab's AI group and other experts, described in more detail in Section~\ref{subsec:simteam}.
-
-\subsection{Detector Simulation}\label{subsec:sim}
-
-\subsubsection{Background}\label{subsec:simbkg}
-
-Full detector simulation using \GEANTfour~\cite{Agostinelli:2002hh} is highly accurate, but computationally costly:
-it consumed 40\% of grid CPU usage by the major LHC experiments during Run 2~\cite{Apostolakis:2018ieg}.
-This limits the number of simulated events that can be produced, directly increasing uncertainties and reducing sensitivity.
-In particular, SVJ searches (Section~\ref{subsec:dm}) require large background samples to design optimal strategies
-and large signal samples for thorough scans of all of the signal model parameters.
-However, statistical uncertainty in simulation impacts the entire collider physics program, including measurements of the Higgs boson.
-
-\begin{figure}[htb!]
-\centering
-\twofigeqh{figures/cpu_cms2022.pdf}{figures/cpu_pie_cms2022.pdf}
-\caption{Left: projected CPU needs and resources for CMS in Run 3 (LHC) and Runs 4--5 (HL-LHC). Right: breakdown of CPU usage by activity during Run 4. Reproduced from Ref.~\cite{CMS-NOTE-2022-008}.
-}
-\label{fig:cmsoffcomp}
-\end{figure}
-
-The severity of this problem will increase dramatically for the HL-LHC, which will provide an order of magnitude more data,
-with similar growth in the complexity of each event from the associated detector upgrades.
-Figure~\ref{fig:cmsoffcomp} illustrates the extreme computing challenges in the HL-LHC era.
-The proportion of computing used for reconstruction increases because of superlinear scaling of key algorithms with the number of collisions per event.
-Reconstruction has received substantial community attention and effort to pursue algorithmic and technical improvements,
-such as GPU-based implementations of tracking and pulse shape fitting already deployed by CMS in Run 3~\cite{Bocci:2020pmi}.
-However, the challenges facing simulation have been relatively underserved, and dedicated, coordinated effort is needed.
-The CPU time used by the full detector simulation is expected to increase by a factor of 3 or more~\cite{Pedro:2020kbk},
-because the detector upgrades introduce more complex geometries and higher precision that requires more detailed physics models.
-
-The CMS detector simulation already benefits from numerous technical optimizations and physics-preserving approximations,
-which improve its CPU efficiency by a factor of 4--6 compared to the default, as demonstrated by the PI~\cite{Pedro:2019mkq}.
-The PI also led the effort to integrate a modernized CPU-based simulation engine in the CMS software (CMSSW)~\cite{Pedro:2020kbk},
-concluding that further gains from vectorization and other improvements are ultimately limited~\cite{Amadio:2020ink}.
-He now consults on the implementation of the GPU-based simulation engine Celeritas~\cite{Tognini:2022nmd} in CMS;
-this project offers promising gains in simplified examples, but its performance on the full CMS geometry and physics interactions has yet to be established.
-Generative AI offers an alternative and complementary approach that has been identified as meriting further exploration in the recent DOE report~\cite{AI4SES}.
-
-\subsubsection{Objectives}\label{subsec:simobj}
-
-In order for a generative AI algorithm to become a broadly useful replacement for full detector simulation,
-it must provide a similar level of quality while substantially increasing computational efficiency.
-Numerous techniques have been attempted, as summarized in Refs.~\cite{Adelmann:2022ozp,Hashemi:2023rgo}.
-Most have not reached the desired level of quality, which is the necessary prerequisite for any potential increases in computational speed to be meaningful.
-The PI formed and leads the CMS Machine Learning for Simulation (ML4Sim) group, and previously convened the HEP Software Foundation Detector Simulation Working Group
-and the Theoretical Calculations and Simulation topical group for the Snowmass Computational Frontier~\cite{Boyle:2022cvo,Elvira:2022wyn}.
-Through these roles, he has directed the field toward an emphasis on practical usability of generative AI.
-
-%The PI was among the first to explore ``denoising'' techniques~\cite{Banerjee:2022gkg}, which learn a regression from a low-quality or ``noisy'' simulation to a high-quality or ``denoised'' final result~\cite{Pixar}.
-Recently, diffusion models have come to dominate generative tasks in industry, such as the popular text-to-image generators Stable Diffusion, DALL${\cdot}$E, and Midjourney.
-These models learn to smear existing simulations by successively adding small amounts of randomness,
-in order to be able to reverse the process, iteratively unsmearing random inputs to produce realistic output.
-The PI has demonstrated that diffusion models can produce simulations of the necessary quality, based on public datasets~\cite{Amram:2023onf}.
-We will now apply this approach to simulate particle showers in the CMS calorimeters, which are the major contributor to increasing per-event simulation time at the HL-LHC~\cite{Pedro:2020kbk}.
-In addition to the default ``fully generative'' approach, (producing showers from completely random input),
-we will also explore a ``hybrid'' approach (producing showers from approximately correct input).
-The latter is inspired by the PI's previous efforts on ``denoising'' techniques~\cite{Banerjee:2022gkg}, which learn a regression from a low-quality or ``noisy'' simulation to a high-quality or ``denoised'' final result~\cite{Pixar}; diffusion models can be seen as the ultimate version of denoising.
-We target percent-level agreement with \GEANTfour and at least a factor of 100 improvement in throughput;
-both are achievable given existing results, with further increases to the speed of diffusion expected as part of the project.
-Any remaining discrepancies between the full and AI-based simulations will be handled by high-level refinement,
-another regression-based technique developed by the PI~\cite{Bein:2023ylt} that is already being commissioned by CMS for Run 3.
-The readiness of the entire AI-based CMS simulation chain before the HL-LHC startup will facilitate the dark QCD scan, the Run 3 capstone, as well as all Run 4 activities.
-
-AI algorithm inference uses a restricted set of operations, such as matrix multiplications, which can naturally be accelerated on coprocessors.
-The PI is the lead developer for the Services for Optimized Network Inference on Coprocessors (SONIC) approach,
-which has demonstrated seamless integration of coprocessors into experiment software frameworks, with inference speedups of multiple orders of magnitude,
-for CMS, ATLAS, the Deep Underground Neutrino Experiment (DUNE), the Laser Interferometer Gravitational-Wave Observatory (LIGO), and analysis facilities~\cite{Duarte:2019fta,Krupa:2020bwg,Wang:2020fjr,Rankin:2020usv,Gunny:2021gne,Cai:2023ldc,CMS:2024twn,Savard:2023wwi}.
-SONIC implements inference as a service, enabling usage of remote coprocessors and batching computation across events.
-Deploying generative AI for simulation via SONIC provides a path for efficient utilization of HPC resources and even new, unforeseen coprocessors.
-SONIC has already been shown to work with GPUs, FPGAs, TPUs (tensor processing units), and IPUs (intelligence processing units).
-
-The impact of AI-based simulation will be felt even beyond the HL-LHC.
-P5 has recommended~\cite{P5:2023} an increase in research and development toward future colliders that can reach higher energy scales
-to further our exploration of the universe, including the nature of dark matter.
-In particular, the report highlights a muon collider as a path to 10\TeV parton center-of-mass energy, potentially at Fermilab.
-Simulation studies are one of the first critical items to understand the feasibility and design of the muon collider and its detectors.
-These simulations face an even greater challenge: the beam-induced background (BIB) from muon decays in flight presents unprecedented particle multiplicity,
-to the extent that a single event currently takes 24 hours to simulate in \GEANTfour.
-A combination of the Celeritas GPU-based classical simulation engine and AI-based simulation using diffusion models will be necessary to handle the BIB at scale.
-Delivering this application by the end of the grant period will help ensure the success of the next generation of collider experiments.
-
-\subsubsection{Team and Collaborators}\label{subsec:simteam}
-
-Through past work in detector simulation, the PI has established collaborations with experts in this topic at Fermilab, CERN, and the HEP Software Foundation.
-In particular, Fermilab hosts one of the largest \GEANTfour groups (P. Canal, D. Elvira, S. Y. Jun, G. Lima), with whom the PI works closely;
-they collaborate with Oak Ridge and Argonne national laboratories on the Celeritas project.
-Fermilab also has a diverse but tight-knit group of AI experts working on collider (O. Amram, Y. Feng, L. Gray, B. Hawks, C. Herwig, T. Klijnsma, J. Ngadiuba, N. Tran),
-neutrino (G. Perdue, M. Wang, T. Yang), astrophysics (A. Ciprijanovic, R. Nevin, B. Nord, M. Voetberg), and computing (M. Acosta Flechas, B. Holzman) applications.
-The PI works closely with the CMS experiment software framework developers (C. Jones, D. Dagenhart, M. Kortelainen, K. Knoepfel, E. Sexton-Kennedy).
-The initial investigation of ML denoising was conducted with Fermilab interns (students from University of Chicago, University of Maryland, and Lafayette College) and students and postdocs from University of Puerto Rico.
 As leader of the CMS ML4Sim group, the PI collaborates closely with international colleagues from institutes such as DESY, University of Hamburg, and National Taiwan University.
 The PI developed inference as a service for experiment software frameworks as part of the Fast Machine Learning Lab~\cite{FML},
 a collective that includes Fermilab researchers (above)
 and others from CERN, Massachusetts Institute of Technology, Purdue University, University of California San Diego, University of Colorado Boulder, University of Illinois Urbana-Champaign, and University of Washington.
-The Fast ML Lab has strong ties to industry, including Nvidia and Graphcore, and the PI in particular has extensive experience working with industry engineers.
+The Fast ML Lab has strong ties to industry, including Nvidia, Microsoft, and Graphcore, and the PI in particular has extensive experience working with industry engineers.
 This diverse group, which the PI can most effectively access as a fellow lab scientist,
 provides unparalleled knowledge and experience to support the proposal's technical and ML-related goals.
-The PI's position and connections at Fermilab, therefore, are multipliers for the DOE's early career investment, resulting in a stronger, more impactful proposal.
-
-The PI and the new RA will be assisted in this project by AI associates (post-baccalaureate researchers with AI-relevant degrees and experience), supported by the early career funds.
-We expect to employ two AI associates, one during budget years (BYs) 2--3 to help develop the diffusion algorithm is being developed, and a second during BYs 4--5, to implement inference as a service for simulation and utilize HPCs.
