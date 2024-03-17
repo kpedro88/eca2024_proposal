@@ -23,8 +23,8 @@ The severity of this problem will increase dramatically for the HL-LHC, which wi
 along with growth in per-event complexity from the associated detector upgrades.
 Figure~\ref{fig:cmsoffcomp} illustrates the extreme computing challenges in the HL-LHC era.
 The proportion of computing used for reconstruction increases because of superlinear scaling of key algorithms with the number of collisions per event.
-Reconstruction has received substantial community attention and effort to pursue algorithmic and technical improvements,
-such as GPU-based implementations of tracking and pulse shape fitting already deployed by CMS in Run 3~\cite{Bocci:2020pmi}.
+Reconstruction has received substantial attention and effort to pursue algorithmic and technical improvements,
+such as GPU implementations of tracking and pulse shape fitting already deployed by CMS in Run 3~\cite{Bocci:2020pmi}.
 However, the challenges facing simulation have been relatively underserved;
 it remains the second-largest contributor after reconstruction, so dedicated, coordinated effort is needed.
 The CPU time used by the full detector simulation is expected to increase by a factor of 3 or more~\cite{Pedro:2020kbk},
@@ -36,7 +36,7 @@ The PI also led the effort to integrate a modernized CPU-based simulation engine
 concluding that further gains from vectorization and other improvements are ultimately limited~\cite{Amadio:2020ink}.
 He now consults on the implementation of the GPU-based simulation engine Celeritas~\cite{Tognini:2022nmd} in CMS;
 this project offers promising gains in simplified examples, but its performance with the full CMS geometry and physics interactions has yet to be established.
-\textbf{Generative AI offers an alternative and complementary approach that has been identified as meriting further exploration in the recent DOE report}~\cite{AI4SES}.
+\textbf{Generative AI offers an alternative and complementary approach that was highlighted in the recent DOE report}~\cite{AI4SES}.
 
 \subsection{Objectives}\label{subsec:simobj}
 
