@@ -139,7 +139,7 @@ However, if it does not, Section~\ref{subsec:refine} includes alternative approa
 
 \subsection{Step 2: Hybrid Simulation}\label{subsec:refine}
 
-\begin{wrapfigure}[23]{L}{0.5\textwidth}
+\begin{wrapfigure}[21]{L}{0.5\textwidth}
 \centering
 \includegraphics[width=0.49\myfigurewidth]{figures/Regression_20221127_DeepFlavB_preliminary.pdf}
 \caption{The distribution of the \DEEPJET \cPqb-jet tagging discriminator: FastSim deviates from \GEANTfour by ${\sim}10\%$, while refined FastSim has percent-level agreement with \GEANTfour.}
@@ -180,13 +180,6 @@ SONIC allows seamless utilization of coprocessors in experiment software, with d
 for CMS, ATLAS, the Deep Underground Neutrino Experiment (DUNE), the Laser Interferometer Gravitational-Wave Observatory (LIGO), and analysis facilities~\cite{Duarte:2019fta,Krupa:2020bwg,Wang:2020fjr,Rankin:2020usv,Gunny:2021gne,Cai:2023ldc,CMS:2024twn,Savard:2023wwi}.
 The underlying framework takes advantage of open-source tools, including the Nvidia Triton inference server~\cite{nvidia} and advances in machine learning packages.
 
-\begin{wrapfigure}[20]{r}{0.5\textwidth}
-\centering
-\includegraphics[width=0.49\myfigurewidth]{figures/CMS-MLG-23-001_Figure_005-b.pdf}
-\caption{The inference throughput for ParticleNet on CPU and GPU, using ONNX, TensorRT, and PyTorch backends. PyTorch on GPU provides the largest throughput increase.}
-\label{fig:sonic}
-\end{wrapfigure}
-
 The latest results for SONIC in CMS are shown in Fig.~\ref{fig:sonic}:
 ParticleNet inference throughput can be increased up to a factor of 100 by using GPUs with the optimal backend software configuration~\cite{CMS:2024twn}.
 This approach essentially eliminates the impact of AI algorithm inference on event throughput,
@@ -194,6 +187,13 @@ and the use of asynchronous, non-blocking requests~\cite{Bocci:2020olh} further 
 at least up to a distance of hundreds of kilometers.
 A single coprocessor, located anywhere, can serve tens or even hundreds of CPU processes.
 SONIC has already been shown to work with GPUs, FPGAs, TPUs (tensor processing units), and IPUs (intelligence processing units).
+
+\begin{wrapfigure}[19]{r}{0.5\textwidth}
+\centering
+\includegraphics[width=0.49\myfigurewidth]{figures/CMS-MLG-23-001_Figure_005-b.pdf}
+\caption{The inference throughput for ParticleNet on CPU and GPU, using ONNX, TensorRT, and PyTorch backends. PyTorch on GPU provides the largest throughput increase.}
+\label{fig:sonic}
+\end{wrapfigure}
 
 As noted in Section~\ref{subsec:diffu}, the maximum speedup for AI-based simulation is achieved by performing inference on GPU
 and generating showers for at least 100 particles simultaneously.

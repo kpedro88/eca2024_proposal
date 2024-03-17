@@ -34,7 +34,7 @@ The results will significantly advance the mission of the DOE Office of Science 
 
 \subsection{Timetable of Activities and Deliverables}
 
-Table~\ref{tab:activities} summarizes the steps, contributors, and deliverables in each part of the proposal (Sections~\ref{sec:darkqcd} and~\ref{sec:ml4sim}).
+Figure~\ref{fig:activities} summarizes the steps, contributors, and deliverables in each part of the proposal (Sections~\ref{sec:darkqcd} and~\ref{sec:ml4sim}).
 Budget years (BYs) 1 and 2 correspond to the remaining years of LHC Run 3, while BY5 corresponds to the final year of the long shutdown before HL-LHC operations commence.
 The last two budget years are devoted to the final, most ambitious deliverables: the dark QCD scan and future collider simulation.
 The deliverables include new dark QCD models in BY2, at least one limited-author AI algorithm publication and the Run 3 semivisible jet search publication in BY3, and the full dark QCD scan publication in BY5.
@@ -46,28 +46,11 @@ AIA\#1 will focus on the optimization of new AI algorithms for jet tagging, jet 
 AIA\#2 will implement the AI-based diffusion in the experiment software framework using inference as a service during BYs 4--5, ensuring its scalability and smooth operation in high performance computing sites.
 This distribution of personpower ensures maximal effort is available leading up to and during BY3, when several deliverables are expected.
 
-\begin{table}[!hbtp]
-\vspace{\myfigurespacing}
-\begin{center}
-\begin{tabular}{cccccc}
-Deliverable & BY1 & BY2 & BY3 & BY4 & BY5 \\
-\hline
-\multicolumn{6}{c}{}\\[-\cmsTabSkip]
-Dark QCD model building & \multicolumn{2}{c}{\cellcolor{blue!25} PI, RA} & & & \\
-Anomaly trigger commissioning & \multicolumn{2}{c}{\cellcolor{blue!25} PI, RA} & & & \\
-Jet tagger and mass variable development & \multicolumn{3}{c}{\cellcolor{blue!25} PI, RA, AIA\#1 $\ast$} & & \\
-Run 3 semivisible jet search & & \multicolumn{2}{c}{\cellcolor{blue!50} PI, RA $\ast$} & & \\
-Dark QCD scan & & & \multicolumn{3}{c}{\cellcolor{blue!75} PI, RA $\ast$} \\
-\multicolumn{6}{c}{}\\[-\cmsTabSkip]
-Generative AI development & \multicolumn{3}{c}{\cellcolor{orange!25} PI, RA, AIA\#1 $\ast$} & & \\
-Hybrid simulation approach & \multicolumn{3}{c}{\cellcolor{orange!25} PI, RA, AIA\#1} & & \\
-Inference as a service for simulation & & \multicolumn{3}{c}{\cellcolor{orange!50} PI, RA, AIA\#2} & \\
-Future collider simulation & & & & \multicolumn{2}{c}{\cellcolor{orange!75} PI, RA $\ast$} \\
-\end{tabular}
-\vspace{\myfigureskip}
-\caption{A summary of the activities and deliverables for the strongly coupled dark matter searches and fast detector simulation development in each budget year. The contributions of the PI, RA, and AIAs are noted. The symbol $\ast$ indicates an expected publication.}
-\label{tab:activities}
-\end{center}
-\end{table}
+\begin{figure}[htb!]
+\centering
+\includegraphics[width=0.95\myfigurewidth]{figures/table_final.pdf}
+\caption{A summary of the steps in the strongly coupled dark matter searches and fast detector simulation development in each budget year. The contributions of the PI, RA, and AIAs are noted. The symbol $\ast$ indicates an expected publication. Arrows indicate dependencies between steps.}
+\label{fig:activities}
+\end{figure}
 
 \clearpage
