@@ -31,12 +31,12 @@ The CPU time used by the full detector simulation is expected to increase by a f
 because the detector upgrades introduce more complex geometries and higher precision requiring more detailed physics models.
 
 The CMS detector simulation already benefits from numerous technical optimizations and physics-preserving approximations,
-which improve its CPU efficiency by a factor of 4--6 compared to the default, as demonstrated by the PI~\cite{Pedro:2019mkq}.
+which improve its CPU efficiency by a factor of 4--6 compared to baseline \GEANTfour, as demonstrated by the PI~\cite{Pedro:2019mkq}.
 The PI also led the effort to integrate a modernized CPU-based simulation engine in the CMS software (CMSSW)~\cite{Pedro:2020kbk},
-concluding that further gains from vectorization and other improvements are ultimately limited~\cite{Amadio:2020ink}.
+which achieved a factor of 2 speedup~\cite{Amadio:2020ink}.
 He now consults on the implementation of the GPU-based simulation engine Celeritas~\cite{Tognini:2022nmd} in CMS;
 this project offers promising gains in simplified examples, but its performance with the full CMS geometry and physics interactions has yet to be established.
-\textbf{Generative AI offers an alternative and complementary approach that was highlighted in the recent DOE report}~\cite{AI4SES}.
+\textbf{Generative AI offers an alternative and complementary approach to achieve substantial speedups using GPUs, highlighted in the recent DOE report}~\cite{AI4SES}.
 
 \subsection{Objectives}\label{subsec:simobj}
 
@@ -46,7 +46,7 @@ Numerous techniques have been attempted~\cite{Adelmann:2022ozp,Hashemi:2023rgo};
 most have not reached the desired level of quality, without which any potential increase in computational speed is not meaningful.
 The PI formed and leads the CMS Machine Learning for Simulation (ML4Sim) group, and previously convened the HEP Software Foundation Detector Simulation Working Group
 and the Theoretical Calculations and Simulation topical group for the Snowmass Computational Frontier~\cite{Boyle:2022cvo,Elvira:2022wyn}.
-Through these roles, he has directed the field toward an emphasis on practical usability of generative AI.
+Through these roles, he is directing the field toward an emphasis on practical usability of generative AI.
 Recently, diffusion models have come to dominate generative tasks in industry, such as the popular text-to-image generators Stable Diffusion, DALL${\cdot}$E, and Midjourney.
 The PI has demonstrated that diffusion models can produce simulations of the necessary quality, based on public datasets~\cite{Amram:2023onf}.
 
@@ -62,7 +62,7 @@ Both are achievable given existing results, with further increases to the speed 
 Any remaining discrepancies between the full and AI-based simulations will be handled by an existing, simpler form of the hybrid approach.
 \textbf{The readiness of the entire AI-based CMS simulation chain before the HL-LHC startup will facilitate the Run 3 capstone dark QCD scan, as well as all future Run 4 activities.}
 
-The impact of AI-based simulation will be felt even beyond the HL-LHC.
+The impact of AI-based simulation will be felt even at colliders beyond the HL-LHC.
 P5 has recommended~\cite{P5:2023} an increase in research and development toward future colliders that can reach higher energy scales
 to further our exploration of the universe, including the nature of dark matter.
 In particular, the report highlights a muon collider as a path to 10\TeV parton center-of-mass energy, potentially at Fermilab.
