@@ -171,15 +171,17 @@ We will introduce a GNN in the EVN formalism, creating a jet variable network (J
 This new approach is inspired by the observations from Refs.~\cite{Strassler:2008fv,CMS:2021dzg} that conventional jet grooming or subjet techniques, when applied to SVJs, reflect the dark hadron mass scale \mdark.
 This is distinct from the behavior for jets arising from decays of heavy boosted objects such as top quarks or weak bosons,
 because the hadronization process shares energy between color-connected objects and therefore does not preserve the mass of the initiating parton.
-The result from the soft drop algorithm~\cite{Larkoski:2014wba} is shown in Fig.~\ref{fig:svjmass} (right); this algorithm captures \mdark when there is a single hard fragmentation during the showering process.
+The soft drop algorithm~\cite{Larkoski:2014wba} captures \mdark when there is a single hard fragmentation during the showering process, shown in Fig.~\ref{fig:svjmass} (left).
 The JVN will extract \mdark more efficiently by implicitly reconstructing the originating dark hadrons,
-and because the unstable dark hadron decays are fully visible, its resolution will not suffer from the limitations of \ptmiss.
+and because the unstable dark hadron decays are fully visible, its resolution will not suffer from the limitations of \ptmiss;
+Fig.~\ref{fig:svjmass} (right) shows the ideal case.
 
 % todo: remove mdark=1, W, Z; make gen-level plot of dark hadron reco
 \begin{figure}[htb!]
 \centering
-\twofigeqh{figures/bothjetAK8msd_dijetmtdetahadloosespike_bdt_mdark_flatptZ30_ECA.pdf}{figures/bothjetAK8msd_dijetmtdetahadloosespike_bdt_mdark_flatptZ30_ECA.pdf}
-\caption{The softdrop mass distributions for SM backgrounds and SVJs with different \mdark values, normalized to unit area.}
+\twofigeqh{figures/bothjetAK8msd_dijetmtdetahadloosespike_bdt_mdark_flatptZ30_ECA.pdf}{figures/darkHadronJetMassSomeAvg.pdf}
+\caption{Left: The softdrop mass distributions for SM backgrounds and SVJs with different \mdark values, normalized to unit area.
+Right: An estimate of the achievable dark hadron mass resolution, 10--20\%, using generator-level information to reconstruct dark hadrons.}
 \label{fig:svjmass}
 \end{figure}
 
