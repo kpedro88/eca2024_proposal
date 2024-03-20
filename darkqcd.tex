@@ -7,7 +7,7 @@ indicate that dark matter exists, comprises the majority of matter in the univer
 These sources include:
 galaxy rotation curves~\cite{Rubin:1980zd,Persic:1995ru,vanDokkum:2018vup,PinaMancera:2021wpc};
 strong~\cite{Clowe:2006eq} and weak~\cite{Chang:2017kmv} gravitational lensing;
-the cosmic microwave background power spectrum~\cite{Planck:2018vyg} and the matter power spectrum of the universe~\cite{Dodelson:2011qv,Planck:2018nkj};
+the cosmic microwave background power spectrum~\cite{Planck:2018vyg}; the matter power spectrum of the universe~\cite{Dodelson:2011qv,Planck:2018nkj};
 and discrepancies in big bang nucleosynthesis~\cite{Pospelov:2010hj}.
 
 Weakly interacting massive particles (WIMPs) have been explored for decades~\cite{Jungman:1995df}, with no direct evidence yet obtained for their existence.
@@ -32,11 +32,11 @@ and \emph{soft unclustered energy patterns} (SUEPs), in which unsuppressed large
 
 \subsection{Objectives}\label{subsec:dmobj}
 
-\begin{wrapfigure}[15]{r}{0.5\textwidth}
+\begin{wrapfigure}[16]{r}{0.5\textwidth}
 \centering
-\includegraphics[width=0.49\myfigurewidth]{figures/zPrime_feyn.pdf}\\
-\includegraphics[width=0.49\myfigurewidth]{figures/tChan_feyn.pdf}
-\caption{Feynman diagrams for $s$-channel (upper) and $t$-channel (lower) SVJ production.}
+\includegraphics[width=0.47\myfigurewidth]{figures/zPrime_feyn.pdf}\\
+\includegraphics[width=0.47\myfigurewidth]{figures/tChan_feyn.pdf}
+\caption{Feynman diagrams for $s$-channel (upper) and $t$-channel (lower) production of dark quarks \Pqdark resulting in semivisible jets.}
 \label{fig:diagrams}
 \end{wrapfigure}
 
@@ -74,7 +74,7 @@ the mediator mass \mZprime or \mbifun, the dark hadron mass scale \mdark, and th
 The latter is the most novel parameter of the model, corresponding to the fraction of dark hadrons that are stable and invisible (DM candidates).
 However, it is an effective parameter, summarizing the impacts of various accidental symmetries and conserved quantum numbers.
 Many other dark sector parameters can impact the collider final state, including the cutoff scale \Lamdark, the dark quark mass \mqdark, the number of dark colors \Ncdark, and the number of dark flavors \Nfdark.
-The details of the mediator connecting the SM and dark sector, such as its couplings, can affect the decays of unstable dark hadrons.
+The details of the mediator connecting the SM and the dark sector, such as its couplings, can affect the decays of unstable dark hadrons.
 In addition, because low-energy QCD bound state formation via showering and hadronization is non-perturbative, it must be simulated using phenomenological models,
 with parameters that are tuned to measurements of SM QCD.
 
@@ -148,7 +148,7 @@ For the Run 3 SVJ search, we will develop a new tagger combining the best featur
 a GNN-based autoencoder (GAE), using the Lund plane representation following Ref.~\cite{Dreyer:2020brq} and trained using the Wasserstein normalized approach.
 \textbf{Early attempts indicate the GAE could approach the performance level of the supervised tagger, while remaining naturally model-independent.}
 While these taggers are initially trained using simulated events,
-the semi-supervised universal domain adaptation technique developed by the PI and his collaborators~\cite{Ciprijanovic:2023hrw}
+the semi-supervised universal domain adaptation technique, developed by the PI and his collaborators~\cite{Ciprijanovic:2023hrw},
 will be employed to ensure similar performance in data by learning only physically invariant features.
 
 \textit{Risk mitigation}: if the GAE encounters difficulties, the existing tagger architectures can be reused, at the cost of decreased tagging performance or increased model dependence.
@@ -181,11 +181,11 @@ Fig.~\ref{fig:svjmass} (right) shows the ideal case.
 \centering
 \twofigeqh{figures/bothjetAK8msd_dijetmtdetahadloosespike_bdt_mdark_flatptZ30_ECA.pdf}{figures/darkHadronJetMassSomeAvg.pdf}
 \caption{Left: The softdrop mass distributions for SM backgrounds and SVJs with different \mdark values, normalized to unit area.
-Right: An estimate of the achievable dark hadron mass resolution, up to 10\%, using generator-level information to reconstruct dark hadrons.}
+Right: An estimate of the natural dark hadron mass resolution, up to 10\%, using generator-level information to reconstruct dark hadrons.}
 \label{fig:svjmass}
 \end{figure}
 
-\textbf{By searching in the distribution this per-jet mass variable, we will achieve sensitivity to SVJs regardless of the production mode}.
+\textbf{By searching in the distribution this per-jet mass variable, we will achieve sensitivity to SVJs regardless of the production mode, and if dark hadrons exist, we will directly measure their mass}.
 Multiple search regions will be defined using kinematic variables such as jet \pt and \ptmiss,
 to gain additional sensitivity from event-level distinctions between the signal and SM backgrounds.
 Our new approach is analogous to recent searches for boosted Higgs bosons~\cite{CMS:2020zge},
