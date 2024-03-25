@@ -118,7 +118,7 @@ which will facilitate sensitivity to more models and smaller couplings.
 \textbf{The next two years of LHC Run 3 at the CMS experiment are the only opportunity remaining in this decade to record this data.}
 The anomaly triggers will be monitored to ensure they do not trigger on unusual instrumental noise or other unwanted effects.
 
-\textit{Risk mitigation}: if the final anomaly trigger performance is not sufficient, the multi-trigger strategy can be used, at the cost of increasing event kinematic dependence and effort to analyze multiple datasets.
+\textit{Risk mitigation}: if the final anomaly trigger performance is not sufficient, the multi-trigger strategy can be used, at the cost of increasing event kinematic dependence and analysis effort.
 
 \subsection{Step 3: Unsupervised SVJ Tagging}\label{subsec:tagging}
 
@@ -147,8 +147,8 @@ This approach is also being applied to improve the anomaly triggers.
 For the Run 3 SVJ search, we will develop a new tagger combining the best features of both approaches:
 a GNN-based autoencoder (GAE), using the Lund plane representation following Ref.~\cite{Dreyer:2020brq} and trained using the Wasserstein normalized approach.
 \textbf{Early attempts indicate the GAE could approach the performance level of the supervised tagger, while remaining naturally model-independent.}
-While these taggers are initially trained using simulated events,
-the semi-supervised universal domain adaptation technique, developed by the PI and his collaborators~\cite{Ciprijanovic:2023hrw},
+While these taggers are initially trained using simulation,
+a semi-supervised universal domain adaptation technique, developed by the PI and collaborators~\cite{Ciprijanovic:2023hrw},
 will be employed to ensure similar performance in data by learning only physically invariant features.
 
 \textit{Risk mitigation}: if the GAE encounters difficulties, the existing tagger architectures can be reused, at the cost of decreased tagging performance or increased model dependence.
@@ -203,10 +203,10 @@ to optimize two decorrelated neural network outputs to define three control regi
 While this proposal focuses on SVJs, there are other dark QCD phenomena.
 EMJs form if the unstable dark hadrons have a lifetime \taudark, leading to multiple displaced vertices within a single jet.
 SUEPs occur when there is a large 't Hooft coupling strength $\thooft = \gdark^2 \Ncdark$,
-resulting in a high multiplicity of isotropically distributed low-momentum tracks, rather than collimated jets.
+resulting in many isotropically distributed low-momentum tracks, rather than collimated jets.
 The CMS Dark QCD team has recently released new results for both signatures in Refs.~\cite{CMS:2024nca,CMS:2024gxp},
-following the first CMS EMJ search with a small dataset~\cite{Sirunyan:2018njd}.
-Conducting separate searches for each phenomenon is important to understand the kinematic phase space and behavior associated with these new models.
+following the first CMS EMJ search~\cite{Sirunyan:2018njd}.
+We conducted separate searches for each phenomenon to understand the kinematic phase space and behavior associated with these new models.
 
 \begin{figure}[bht]
 \centering

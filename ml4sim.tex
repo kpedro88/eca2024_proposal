@@ -51,7 +51,7 @@ The PI has demonstrated that diffusion models can produce simulations of the nec
 exceeding the performance of other approaches~\cite{Adelmann:2022ozp,Hashemi:2023rgo}.
 
 We will now apply diffusion models to simulate particle showers in the CMS calorimeters, which are the major contributor to increasing per-event simulation time at the HL-LHC~\cite{Pedro:2020kbk}.
-We pursue two complementary paths for the AI algorithms (steps 1 and 2), both deployed in the same way (step 3):
+We pursue two complementary paths for the AI algorithms (1, 2), both deployed in the same way (3):
 \begin{enumerate}
 \item the ``fully generative'' approach, producing showers from completely random input (Section~\ref{subsec:diffu});
 \item the ``hybrid'' approach, producing showers from approximately correct input (Section~\ref{subsec:refine});
@@ -63,14 +63,14 @@ Any remaining discrepancies between the full and AI-based simulations will be ha
 \textbf{The readiness of the entire AI-based CMS simulation chain before the HL-LHC startup will facilitate the Run 3 capstone dark QCD scan, as well as all future Run 4 activities.}
 
 The impact of AI-based simulation will be felt even at colliders beyond the HL-LHC.
-P5 has recommended~\cite{P5:2023} an increase in research and development toward future colliders that can reach higher energy scales
+P5 has recommended~\cite{P5:2023} an increase in R\&D toward future higher-energy colliders
 to further our exploration of the universe, including the nature of dark matter.
 In particular, the report highlights a muon collider as a path to 10\TeV parton center-of-mass energy, potentially at Fermilab.
 \textbf{Simulation studies are one of the first critical items to understand the feasibility and design of the muon collider and its detectors.}
 These simulations face an even greater challenge: the beam-induced background (BIB), from muon decays in flight, produces unprecedented particle multiplicity
-to the extent that a single event currently takes 24 hours to simulate in \GEANTfour.
+such that a single event currently takes 24 hours to simulate in \GEANTfour.
 A combination of the Celeritas GPU-based classical simulation engine and AI-based simulation using diffusion models will be necessary to handle the BIB at scale.
-Delivering this application by the end of the grant period will help ensure the success of the next generation of collider experiments.
+Delivering this application by the end of the grant will help ensure the success of the next generation of collider experiments.
 
 \subsection{Step 1: Fully Generative AI-based Simulation}\label{subsec:diffu}
 
