@@ -27,7 +27,7 @@ as well as the mediator particles that facilitate weak interactions between the 
 these dark showers can produce a variety of experimental signatures.
 These include: \emph{semivisible jets} (SVJs), where \met from invisible dark hadrons is aligned with visible SM hadrons~\cite{Cohen:2015toa};
 \emph{emerging jets} (EMJs), with multiple displaced vertices from decays of long-lived dark hadrons~\cite{Schwaller:2015gea};
-and \emph{soft unclustered energy patterns} (SUEPs), in which unsuppressed large angle emissions lead to a spherical pattern of dark hadrons~\cite{Knapen:2016hky}.
+and \emph{soft unclustered energy patterns} (SUEPs), in which unsuppressed large-angle emissions lead to a spherical pattern of dark hadrons~\cite{Knapen:2016hky}.
 \textbf{These signatures are quite distinct from the expectations from WIMP dark matter and therefore are not probed by WIMP searches.}
 
 \subsection{Objectives}\label{subsec:dmobj}
@@ -41,23 +41,23 @@ and \emph{soft unclustered energy patterns} (SUEPs), in which unsuppressed large
 \end{wrapfigure}
 
 The existing program of dark QCD searches, initiated and led by the PI, has utilized the CMS Run 2 dataset~\cite{Sirunyan:2018njd,CMS:2021dzg,CMS:2024nca,CMS:2024gxp}.
-In particular, the PI led the first search for semivisible jets, published in Ref.~\cite{CMS:2021dzg}, which targeted $s$-channel production via a massive \PZprime mediator (Fig.~\ref{fig:diagrams} (upper)).
+In particular, the PI led the first search for semivisible jets~\cite{CMS:2021dzg}, which targeted $s$-channel production via a massive \PZprime mediator (Fig.~\ref{fig:diagrams} (upper)).
 This was the first dedicated analysis of collider events with jets aligned with missing transverse momentum,
 a signature that usually arises in the SM via undermeasurement of a jet from a QCD multijet process.
 Model-dependent results, based on a supervised SVJ identification algorithm or ``tagger'' using high-level jet substructure variables, exclude \PZprime masses of 1.5--5.1\TeV,
 while model-independent results without the tagger exclude 1.8--3.4\TeV.
-More recently, the ATLAS collaboration performed a search for nonresonant $t$-channel production of SVJs via a bifundamental scalar mediator \Pbifun  (Fig.~\ref{fig:diagrams} (lower)),
-excluding masses from 1.0--2.7\TeV~\cite{ATLAS:2023swa}.
+More recently, the ATLAS collaboration performed a search for nonresonant $t$-channel production of SVJs via a bifundamental scalar mediator \Pbifun (Fig.~\ref{fig:diagrams} (lower))
+that excluded masses from 1.0--2.7\TeV~\cite{ATLAS:2023swa}.
 
 \textbf{For Run 3, we propose a new, unified strategy to increase model independence in every stage of the search.}
 We focus on SVJs as the signature with the most to gain from advanced techniques.
-EMJs and SUEPs present unusual but identifiable signatures in the tracking systems,
-while SVJs can only be distinguished from SM QCD by careful investigation of jet substructure and event-level correlations.
+SVJs can only be distinguished from SM QCD by careful investigation of jet substructure and event-level correlations,
+while EMJs and SUEPs present unusual but identifiable signatures in the tracking systems.
 Our strategy has the following steps:
 \begin{enumerate}
 \item build new models to obtain a broader set of complete hidden valley theories (Section~\ref{subsec:models});
 \item exploit AI-based anomaly detection triggers to record more dark QCD events with less production mode and kinematic dependence (Section~\ref{subsec:trig});
-\item further develop existing unsupervised AI techniques to tag SVJs more efficiently (Section~\ref{subsec:tagging};
+\item further develop unsupervised AI techniques to tag SVJs more efficiently (Section~\ref{subsec:tagging};
 \item extract the signal via a new jet mass variable for production mode independence (Section~\ref{subsec:strategy}).
 \end{enumerate}
 
@@ -72,11 +72,11 @@ Conducting this scan before the HL-LHC starts will ensure that we can optimize t
 Dark QCD models include numerous parameters, with current searches focusing on those most immediately observable:
 the mediator mass \mZprime or \mbifun, the dark hadron mass scale \mdark, and the invisible fraction \rinv.
 The latter is the most novel parameter of the model, corresponding to the fraction of dark hadrons that are stable and invisible (DM candidates).
-However, it is an effective parameter, summarizing the impacts of various accidental symmetries and conserved quantum numbers.
+It is an effective parameter that summarizes the impacts of various accidental symmetries and conserved quantum numbers.
 Many other dark sector parameters can impact the collider final state, including the cutoff scale \Lamdark, the dark quark mass \mqdark, the number of dark colors \Ncdark, and the number of dark flavors \Nfdark.
 The details of the mediator connecting the SM and the dark sector, such as its couplings, can affect the decays of unstable dark hadrons.
-In addition, because low-energy QCD bound state formation via showering and hadronization is non-perturbative, it must be simulated using phenomenological models,
-with parameters that are tuned to measurements of SM QCD.
+In addition, because low-energy strong bound state formation via showering and hadronization is non-perturbative,
+it must be simulated using phenomenological models with parameters that are tuned to measurements of SM QCD.
 
 The models currently investigated in CMS searches are based on Refs.~\cite{Cohen:2015toa,Cohen:2017pzm}, along with contributions from the PI
 regarding the relationship between \mdark and \Lamdark, as well as the modeling of \rinv~\cite{Albouy:2022cin}.
@@ -84,7 +84,7 @@ These models choose $\Ncdark=2$ and $\Nfdark=2$, which leads to similarities in 
 given the lack of a confining $SU(2)$ force in the SM.
 Here, we propose a more comprehensive assessment of the interplay between \Nfdark, \Lamdark, \mdark, and \mqdark (among other parameters),
 focusing on the $\Ncdark=3$ case, for which results from lattice QCD and other SM measurements apply more directly.
-This will complete the original vision of the Snowmass effort, Ref.~\cite{Albouy:2022cin},
+This will complete the original vision of the Snowmass effort~\cite{Albouy:2022cin}
 to deliver a complete set of benchmarks covering the entire range of \rinv values from 0 to 1,
 reflecting new understanding about degeneracies in the model space and any nontrivial correlations between \rinv and observables such as jet substructure.
 \textbf{We will optimize the Run 3 search using this new set of benchmarks to ensure the entire known phenomenological space is covered},
@@ -138,11 +138,11 @@ A score of 1.0 would indicate perfect discrimination between signal and backgrou
 \end{figure}
 
 The AE only learns to reconstruct common SM background processes and therefore discriminates against other processes by failing to reconstruct their kinematic features.
-The PI was among the first to demonstrate the autoencoders could discriminate between SM QCD jets and SVJs, even surpassing a supervised tagger when applied to a signal model not used during training~\cite{Canelli:2021aps}.
+The PI was among the first to demonstrate that autoencoders could discriminate between SM QCD jets and SVJs, even surpassing a supervised tagger when applied to a signal model not used during training~\cite{Canelli:2021aps}.
 To achieve discrimination against \ttbar jets, the normalized autoencoder (NAE) formalism~\cite{Dillon:2022mkq} was adopted in order to minimize complexity bias.
 The team developed a completely novel method to stabilize the training by directly minimizing the Wasserstein or earth mover's distance
 between samples drawn from the input data and from the latent representation of the autoencoder~\cite{Eble:2024tpr}.
-This approach is also being applied to improve the anomaly triggers.
+This approach is also being applied to improve the anomaly triggers (Section~\ref{subsec:trig}).
 
 For the Run 3 SVJ search, we will develop a new tagger combining the best features of both approaches:
 a GNN-based autoencoder (GAE), using the Lund plane representation following Ref.~\cite{Dreyer:2020brq} and trained using the Wasserstein normalized approach.
