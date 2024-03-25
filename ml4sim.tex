@@ -72,7 +72,9 @@ such that a single event currently takes 24 hours to simulate in \GEANTfour.
 A combination of the Celeritas GPU-based classical simulation engine and AI-based simulation using diffusion models will be necessary to handle the BIB at scale.
 Delivering this application by the end of the grant will help ensure the success of the next generation of collider experiments.
 
-\subsection{Step 1: Fully Generative AI-based Simulation}\label{subsec:diffu}
+\subsection{AI-based Simulation for CMS}
+
+\subsubsection{Step 1: Fully Generative Simulation}\label{subsec:diffu}
 
 Diffusion models are a type of generative AI, inspired by the physical process of diffusion.
 Starting from some input data, such as images or calorimeter showers,
@@ -137,7 +139,7 @@ though we still expect to exceed \GEANTfour when running in batches on GPU.
 Based on existing results, the fully generative diffusion model will almost certainly produce higher quality output than existing fast simulation (FastSim) approaches in CMS~\cite{Sekmen:2016iql}.
 However, if it does not, Section~\ref{subsec:refine} includes alternative approaches to improve the existing FastSim.
 
-\subsection{Step 2: Hybrid Simulation}\label{subsec:refine}
+\subsubsection{Step 2: Hybrid Simulation}\label{subsec:refine}
 
 \begin{wrapfigure}[21]{L}{0.5\textwidth}
 \centering
@@ -172,7 +174,7 @@ resulting in a more accurate final product}, much like next-to-leading order mat
 \textit{Risk mitigation}: if methods to combine the diffusion model with the existing FastSim do not succeed,
 we can use the fully generative diffusion model or high-level refinement alone, at the cost of reduced computing speed or increased uncertainty, respectively.
 
-\subsection{Step 3: Inference as a Service}\label{subsec:iaas}
+\subsubsection{Step 3: Inference as a Service}\label{subsec:iaas}
 
 AI algorithm inference uses a restricted set of operations, such as matrix multiplications, which can naturally be accelerated on coprocessors.
 The PI is the lead developer for the Services for Optimized Network Inference on Coprocessors (SONIC) approach, which implements inference as a service.
