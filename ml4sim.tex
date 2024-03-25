@@ -42,24 +42,24 @@ this project offers promising gains in simplified examples, but its performance 
 
 In order for a generative AI algorithm to become a broadly useful replacement for full detector simulation,
 it must provide a similar level of quality while substantially increasing computational efficiency.
-Numerous techniques have been attempted~\cite{Adelmann:2022ozp,Hashemi:2023rgo};
-most have not reached the desired level of quality, without which any potential increase in computational speed is not meaningful.
 The PI formed and leads the CMS Machine Learning for Simulation (ML4Sim) group, and previously convened the HEP Software Foundation Detector Simulation Working Group
 and the Theoretical Calculations and Simulation topical group for the Snowmass Computational Frontier~\cite{Boyle:2022cvo,Elvira:2022wyn}.
-Through these roles, he is directing the field toward an emphasis on practical usability of generative AI.
+Through these roles, he is directing the field toward an emphasis on practical usability of generative AI:
+the desired level of quality must be reached in order for any increase in computational speed to be meaningful.
 Recently, diffusion models have come to dominate generative tasks in industry, such as the popular text-to-image generators Stable Diffusion, DALL${\cdot}$E, and Midjourney.
-The PI has demonstrated that diffusion models can produce simulations of the necessary quality, based on public datasets~\cite{Amram:2023onf}.
+The PI has demonstrated that diffusion models can produce simulations of the necessary quality in public datasets~\cite{Amram:2023onf},
+exceeding the performance of other approaches~\cite{Adelmann:2022ozp,Hashemi:2023rgo}.
 
 We will now apply diffusion models to simulate particle showers in the CMS calorimeters, which are the major contributor to increasing per-event simulation time at the HL-LHC~\cite{Pedro:2020kbk}.
-We pursue two complementary paths for the AI algorithms, both of which can be deployed in the same way:
+We pursue two complementary paths for the AI algorithms (steps 1 and 2), both deployed in the same way (step 3):
 \begin{enumerate}
 \item the ``fully generative'' approach, producing showers from completely random input (Section~\ref{subsec:diffu});
 \item the ``hybrid'' approach, producing showers from approximately correct input (Section~\ref{subsec:refine});
-\item integrate in the experiment software using the ``inference as a service'' approach (Section~\ref{subsec:iaas}.
+\item integrate in the experiment software using the ``inference as a service'' approach (Section~\ref{subsec:iaas}).
 \end{enumerate}
 We target percent-level agreement with \GEANTfour and at least a factor of 100 improvement in throughput by using GPU coprocessors.
 Both are achievable given existing results, with further increases to the speed of diffusion expected as part of the project.
-Any remaining discrepancies between the full and AI-based simulations will be handled by an existing, simpler form of the hybrid approach.
+Any remaining discrepancies between the full and AI-based simulations will be handled by an existing, simpler form of the hybrid approach~\cite{Bein:2023ylt}.
 \textbf{The readiness of the entire AI-based CMS simulation chain before the HL-LHC startup will facilitate the Run 3 capstone dark QCD scan, as well as all future Run 4 activities.}
 
 The impact of AI-based simulation will be felt even at colliders beyond the HL-LHC.
@@ -110,10 +110,19 @@ Right: The total deposited energy for the improved version of \diffu compared to
 \label{fig:calodiffu}
 \end{figure}
 
-The major remaining area for improvement in \diffu is its speed.
-While it can still run 10--100 times faster than \GEANTfour by processing particles in large batches on GPUs,
-the initial version required 400 denoising iterations or ``steps'' to produce high-quality output.
-The improved version requires a factor of 4--8 fewer steps, depending on the dataset, because of its intrinsically higher quality.
+\textbf{Here, we propose to adapt \diffu to the more complex and variable CMS geometry.}
+First, we will adapt the model to the existing, simpler CMS calorimeters,
+in order to deliver the necessary simulation for the dark QCD scan (Section~\ref{subsec:darkscan}).
+This also serves as a useful intermediate step toward the most involved case,
+the High Granularity Calorimeter (HGCal), a part of the HL-LHC detector upgrades
+that will increase the number of channels by almost two orders of magnitude.
+The HGCal will have both hexagonal and rectangular cells in different regions, with different material types and thicknesses.
+It is also the major driver of the predicted increase in \GEANTfour simulation time~\cite{Pedro:2020kbk}.
+Further optimizations of the \diffu model will be needed to handle the high dimensionality and precision requirements of this new detector.
+
+\diffu runs 10-100 times faster than \GEANTfour by processing particles in large batches on GPUs.
+While the initial version required 400 denoising iterations or ``steps'' to produce high-quality output,
+the improved version requires a factor of 4--8 fewer steps, depending on the dataset, because of its intrinsically higher quality.
 More recently, some of the PI's colleagues have used \diffu as a platform to test further improvements to both the training and inference~\cite{Jiang:2024ohg},
 and the most promising of these have been integrated into the model~\cite{Amram:GitHub}.
 Numerous other avenues to make the algorithm faster while preserving quality are under investigation~\cite{Rombach:2022,Song:2023,Mei:2023}.
@@ -121,15 +130,6 @@ These illustrate a critical advantage of diffusion models:
 \textbf{because of the massive interest in these models in the broader ML community and in industry,
 new methods are constantly being developed that can be easily imported for HEP use cases,}
 relying on the collaborative nature of open-source software.
-
-\textbf{Here, we propose to adapt \diffu to the more complex and variable CMS geometry.}
-The most involved case will be the High Granularity Calorimeter (HGCal), a part of the HL-LHC detector upgrades
-that will increase the number of channels by almost two orders of magnitude.
-The HGCal will have both hexagonal and rectangular cells in different regions, with different material types and thicknesses.
-It is also the major driver of the predicted increase in \GEANTfour simulation time~\cite{Pedro:2020kbk}.
-Further optimizations of the \diffu model will be needed to handle the high dimensionality and precision requirements of this new detector.
-First, we will adapt the model to the existing, simpler CMS calorimeters,
-which is both a useful stepping stone and an important ingredient for the dark QCD scan (Section~\ref{subsec:darkscan}).
 
 \textit{Risk mitigation}: if the various approaches to speed up the fully generative diffusion model do not succeed,
 this will reduce the amount of simulation that can be produced,
@@ -200,8 +200,8 @@ and generating showers for at least 100 particles simultaneously.
 In order to reliably fill the GPU register memory, particles from multiple events must be processed together.
 In addition, most CPUs in the Worldwide LHC Computing Grid currently are not directly connected to GPUs.
 These considerations point to SONIC as the right approach to integrate AI-based simulation into experiment software frameworks.
-\textbf{As one of the only people to have implemented an alternative simulation engine in CMSSW
-and the lead developer of SONIC, the PI has nearly unparalleled expertise in this area.}
+\textbf{The PI has nearly unparalleled expertise in implementing simulation engines and inference as a service in experiment software},
+through his previous roles in CMS software management and current role as lead developer of SONIC.
 Deploying AI-based simulation via SONIC provides a path for efficient utilization of HPC resources and even new, unforeseen coprocessors.
 
 \textit{Risk mitigation}: if unforeseen complications are encountered in the use of inference as a service,
